@@ -1,6 +1,6 @@
-# Template Jest, Babel, Parcel
+# Proyecto Final
 
-## Como usar
+## Basado en el Template
 
 ```
 git clone https://github.com/israelantezana/template-jest-babel.git
