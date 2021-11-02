@@ -10,9 +10,16 @@
   <body>
     <h1>Organizador de Tareas</h1>
     <form id="Organizador-form">
-      <label for="Ingrese la cadena">Tarea:</label>
-      <input type="text" id="posicion-inicial" />
-      <input type="submit" value="Ingresar" />
+      <label for="Ingrese la cadena">Ingrese el nombre de la tarea:</label>
+      <input type="text" id="name-task" />
+      <br>  
+      <label for="tipo-tarea">Seleccione el tipo de tarea:</label>
+      <select name="typeTask">
+        <option value="1">Trbajo</option>
+        <option value="3">Estudio</option>
+        <option value="3">Deberes</option>
+      </select>
+      <input type="submit" value="Guardar" />
       <iframe src="https://giphy.com/embed/1ZDDyAaAA82ywDiyKs" width="480" height="480" frameBorder="0" class="giphy-embed"></iframe>
       <br>
     </form>
