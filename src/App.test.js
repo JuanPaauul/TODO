@@ -1,7 +1,8 @@
-import {returnEtiqueta} from "./App.js";
+import * as f from "./App.js";
 
 describe("Etiquetas ingresadas por usuario", () => {
     it("deberia retornar la etiqueta con #", () => {
-      expect(returnEtiqueta("etiqueta1")).toEqual("#etiqueta1");
+      expect(f.returnEtiqueta("etiqueta1")).toEqual("#etiqueta1");
     });
   });
+

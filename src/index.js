@@ -1,5 +1,4 @@
-
-import CreateTask from "./App.js";
+import * as f from "./App.js";
 const form = document.querySelector("#Organizador-form");
 const taskName = document.querySelector("#name-task");
 const direcciones = document.querySelector("#tipeTask");
@@ -8,6 +7,6 @@ const etiquetas=document.querySelector("#labelsTask");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-   alert(CreateTask(String(taskName.value +" \nEtiquetas: " +etiquetas.value)));
+   alert(f.createTask(String(taskName.value +" \nEtiquetas: " +etiquetas.value)));
   //div.innerHTML = "<p>" + moverAuto( String( posIni+"/"+direcc)) + "</p>";
 });

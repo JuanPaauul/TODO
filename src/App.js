@@ -1,13 +1,13 @@
-/*let AllTask = Array();
-export default function CreateTask(nameTask)
+let AllTask = Array();
+function createTask(nameTask)
 {
     AllTask.push(nameTask);
     return(nameTask);
-}*/
+}
 
 function returnEtiqueta(etiqueta)
 {
     return "#etiqueta1"
 }
 
-export {returnEtiqueta};
+module.exports = {createTask, returnEtiqueta, getDate};
