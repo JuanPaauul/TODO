@@ -10,6 +10,4 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
    alert(CreateTask(String(taskName.value +" \nEtiquetas: " +etiquetas.value)));
   //div.innerHTML = "<p>" + moverAuto( String( posIni+"/"+direcc)) + "</p>";
-  
-
 });
