@@ -1,8 +1,9 @@
 let AllTask = Array();
-function createTask(nameTask)
+
+function createTask(nameTask,tipeTask)
 {
-    AllTask.push(nameTask);
-    return(nameTask);
+    AllTask.push(nameTask +" , " +tipeTask);
+    return(AllTask);
 }
 
 function returnEtiqueta(etiqueta)
