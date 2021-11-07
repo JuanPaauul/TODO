@@ -10,9 +10,20 @@ const div = document.querySelector("#list-task");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  alert(taskName.value);
-  //alert(f.createTask(String(taskName.value + " \nEtiquetas: " + etiquetas.value + " \nFecha Limite: " + fechaLimite.value)));
-  let ListTask =f.createTask(String(taskName.value), "Aqui deberia ir la cate de la tarea");
-  alert("ListTask");
-  div.innerHTML = "<p>" + JSON.stringify(ListTask) + String(" Etiquetas: " + etiquetas.value) + String(" Fecha Limite: " + fechaLimite.value) +"</p>";
+  let todoFormData = new FormData(form);
+  insertNewTodoInTable(todoFormData);
 });
+function insertNewTodoInTable(todoFormData){
+    let todoTableRef = document.getElementById("todo-table");
+    let newTodoRowRef = todoTableRef.insertRow(-1);
+    let newTypeCellRef = newTodoRowRef.insertCell(0);
+    newTypeCellRef.textContent = 1;
+    newTypeCellRef = newTodoRowRef.insertCell(1);
+    newTypeCellRef.textContent = todoFormData.get("task-name")
+    newTypeCellRef = newTodoRowRef.insertCell(2);
+    newTypeCellRef.textContent = todoFormData.get("task-type")
+    newTypeCellRef = newTodoRowRef.insertCell(3);
+    newTypeCellRef.textContent = todoFormData.get("task-limit-date")
+    newTypeCellRef = newTodoRowRef.insertCell(4);
+    newTypeCellRef.textContent = todoFormData.get("task-tag")
+}

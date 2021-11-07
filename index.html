@@ -5,26 +5,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TODO</title>
+  <style>
+    table, th, td{
+      border: 1px solid black;
+    }
+  </style>
 </head>
 <html>
   <body>
     <h1>Organizador de Tareas</h1>
     <form id="Organizador-form">
       <label for="Ingrese la cadena">Ingrese el nombre de la tarea:</label>
-      <input type="text" id="name-task" />
+      <input type="text" id="name-task" name="task-name"/>
       <br>  
       <label for="tipo-tarea">Seleccione el tipo de tarea:</label>
-      <select name="typeTask">
-        <option value="Trbajo">Trbajo</option>
+      <select name="task-type">
+        <option value="Trabajo">Trabajo</option>
         <option value="Estudio">Estudio</option>
         <option value="Deberes">Deberes</option>
       </select>
       <br>
       <label for="tipo-fecha">Seleccione la fecha limite: </label>
-      <input type="date" name="date-input-name" id="fecha-limite">
+      <input type="date" name="task-limit-date" id="fecha-limite">
       <br>
       <label for="Etiquetas">Ingrese sus etiquetas</label>
-      <input type="text" id="labelsTask" name="name"
+      <input type="text" id="labelsTask" name="task-tag"
            placeholder="Etiqueta1,Etiqueta2...">
       <br><br>
       <input type="submit" value="Guardar" />
@@ -32,6 +37,15 @@
       <iframe src="https://giphy.com/embed/1ZDDyAaAA82ywDiyKs" width="480" height="480" frameBorder="0" class="giphy-embed"></iframe>
     </form>
     <h2>Las Tareas son :</h2>
+    <table id="todo-table">
+      <tr class="cabecera">
+        <th>Id</th>
+        <th>Tarea</th>
+        <th>Tipo</th>
+        <th>Fecha limite</th>
+        <th>Etiquetas</th>
+      </tr>
+    </table>
     <div id="list-task"></div>
     <script src="./src/index.js"></script>
   </body>
