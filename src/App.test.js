@@ -14,5 +14,8 @@ describe("Fechas", () => {
     it("deberia retornar 2 etiquetas ", () => {
       expect(f.returnEtiqueta("etiqueta1,etiqueta2")).toEqual("#etiqueta1 #etiqueta2");
     });
+    it("deberia retornar 3 etiquetas ", () => {
+      expect(f.returnEtiqueta("etiqueta1,etiqueta2,etiqueta3")).toEqual("#etiqueta1 #etiqueta2 #etiqueta3");
+    });
   });
 
