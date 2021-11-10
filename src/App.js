@@ -8,7 +8,18 @@ function createTask(nameTask,tipeTask)
 
 function returnEtiqueta(etiqueta)
 {
-    return "#etiqueta1"
+    let etiquetasConHashtag=getEtiquetaSeparadas(etiqueta);
+    let stringEtiquetas = etiquetasConHashtag.join(" ");
+    return stringEtiquetas;
+}
+
+function getEtiquetaSeparadas(etiquetas)
+{
+    let separadas = etiquetas.split(',');
+    for (let i = 0; i <separadas.length; i++) {
+        separadas[i]="#"+separadas[i];
+    }
+    return separadas;
 }
 
 export function insertNewTodoInTable(todoFormData){
