@@ -6,7 +6,7 @@ var todoData = {};
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  alert("asdad");
+  alert("Se agrego tarea");
   let todoFormData = new FormData(form);
   todoFormData["task-id"]=todoIndex.toString();
   f.insertNewTodoInTable(todoFormData, todoIndex);
