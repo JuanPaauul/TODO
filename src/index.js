@@ -1,13 +1,15 @@
-import CreateTask from "./App.js";
+import * as f from "./App.js";
+
 const form = document.querySelector("#Organizador-form");
-const taskName = document.querySelector("#name-task");
-const direcciones = document.querySelector("#tipeTask");
-const etiquetas = document.querySelector("#labelsTask");
-const descripcion = document.querySelector("#descripcion");
-//const div = document.querySelector("#pos-final");
+var todoIndex = 0;
+var todoData = {};
 
 form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    alert(CreateTask(String(taskName.value + " \nEtiquetas: " + etiquetas.value + descripcion.value)));
-    //div.innerHTML = "<p>" + moverAuto( String( posIni+"/"+direcc)) + "</p>";
+  event.preventDefault();
+  alert("Se agrego tarea");
+  let todoFormData = new FormData(form);
+  todoFormData["task-id"]=todoIndex.toString();
+  f.insertNewTodoInTable(todoFormData, todoIndex);
+
+  todoIndex =+ 1;
 });
