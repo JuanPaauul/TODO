@@ -24,7 +24,7 @@
     <h1>Organizador de Tareas</h1>
     <form id="Organizador-form">
         <label for="Ingrese la cadena">Ingrese el nombre de la tarea:</label>
-        <input type="text" id="name-task" name="task-name" />
+        <input type="text" id="name-task" name="task-name" required/>
         <br>
         <label for="tipo-tarea">Seleccione el tipo de tarea:</label>
         <select name="task-type">
@@ -34,13 +34,13 @@
       </select>
         <br>
         <label for="tipo-fecha">Seleccione la fecha limite: </label>
-        <input type="date" name="task-limit-date" id="fecha-limite">
+        <input type="date" name="task-limit-date" id="fecha-limite" required>
         <br>
         <label for="Etiquetas">Ingrese sus etiquetas</label>
-        <input type="text" id="labelsTask" name="task-tag" placeholder="Etiqueta1,Etiqueta2...">
+        <input type="text" id="labelsTask" name="task-tag" placeholder="Etiqueta1,Etiqueta2..." required>
         <br>
         <label for="Descripcion">Ingrese una descripcion breve</label>
-        <input type="text" id="labelsTask" name="task-description" placeholder="Describeme">
+        <input type="text" id="labelsTask" name="task-description" placeholder="Describeme" required>
         <br><br>
         <input type="submit" value="Guardar" />
         <br>
