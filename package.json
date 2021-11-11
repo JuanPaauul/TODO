@@ -19,13 +19,5 @@
     "parcel": "^2.0.0-rc.0",
     "parcel-bundler": "^1.12.5"
   }
-  /*"main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JuanPaauul/TODO.git"
-  },
-  "bugs": {
-    "url": "https://github.com/JuanPaauul/TODO/issues"
-  },
-  "homepage": "https://github.com/JuanPaauul/TODO#readme"*/
+  
 }
