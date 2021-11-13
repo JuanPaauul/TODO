@@ -19,7 +19,7 @@ function getEtiquetaSeparadas(etiquetas) {
     return separadas;
 }
 
-export function insertNewTodoInTable(todoFormData) {
+function insertNewTodoInTable(todoFormData) {
     let todoTableRef = document.getElementById("todo-table");
     let newTodoRowRef = todoTableRef.insertRow(-1);
     let newTypeCellRef = newTodoRowRef.insertCell(0);
@@ -38,7 +38,7 @@ export function insertNewTodoInTable(todoFormData) {
     newTypeCellRef = newTodoRowRef.insertCell(5);
     newTypeCellRef.textContent = todoFormData.get("task-description");
     newTypeCellRef = newTodoRowRef.insertCell(6);
-    newTypeCellRef.innerHTML = "<input type='checkbox' name='task-done-" + tableId + "'></input>";
+    newTypeCellRef.innerHTML = "<button class='todo-table-button' id='task-done-" + tableId + "'>Marcar como terminado</button>";
 
 }
 
@@ -46,4 +46,4 @@ function getDate(date) {
     return new Date(date).toISOString().split('T')[0];
 }
 
-module.exports = { createTask, returnEtiqueta, getDate, insertNewTodoInTable };
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable };
