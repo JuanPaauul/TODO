@@ -15,6 +15,6 @@ form.addEventListener("submit", (event) => {
 });
 dataTable.addEventListener('click', (e)=>{
   if(e.target.classList.contains('todo-table-button')){
-    console.log("boton de tabla presionado")
+    f.markTaskAsDone(e.target.closest('tr')); //Mando una fila entera mi funcion. e.target selecciona mi boton de tarea termianda y .closest('tr') toma el superior a mi boton con la etiqueta tr.
   }
 });

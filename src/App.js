@@ -38,12 +38,21 @@ function insertNewTodoInTable(todoFormData) {
     newTypeCellRef = newTodoRowRef.insertCell(5);
     newTypeCellRef.textContent = todoFormData.get("task-description");
     newTypeCellRef = newTodoRowRef.insertCell(6);
-    newTypeCellRef.innerHTML = "<button class='todo-table-button' id='task-done-" + tableId + "'>Marcar como terminado</button>";
+    newTypeCellRef.innerHTML = "<button class='todo-table-button'>Marcar como terminado</button>";
 
+}
+
+function markTaskAsDone(taskDone){
+    taskDone.deleteCell(-1);
+    //let undoDone = taskDone.insertCell(-1);
+    //undoDone.innerHTML = "<button class='undo-todo-table-button'>Desmarcar como terminado</button>";
+    let todoTableRef = document.getElementById("todo-table");
+    let todoDoneTableRef = document.getElementById("todo-done-table");
+    todoDoneTableRef.append(taskDone);
 }
 
 function getDate(date) {
     return new Date(date).toISOString().split('T')[0];
 }
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable };
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone};
