@@ -20,5 +20,8 @@ import * as f from "./App.js";
     it("Deberia retornar las etiquetas sin tomar en cuenta los espacios", () => {
       expect(f.returnEtiqueta("etiqueta1, etiqueta2, etiqueta3")).toEqual("#etiqueta1 #etiqueta2 #etiqueta3");
     });
+    it("Deberia retornar las etiquetas evitando etiquetas repetidas", () => {
+      expect(f.returnEtiqueta("etiqueta1, etiqueta2, etiqueta2")).toEqual("#etiqueta1 #etiqueta2");
+    });
   });
 
