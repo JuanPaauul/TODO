@@ -12,6 +12,7 @@ form.addEventListener("submit", (event) => {
   todoFormData["task-id"]=todoIndex.toString();
   f.insertNewTodoInTable(todoFormData, todoIndex);
   todoIndex =+ 1;
+  form.reset();
 });
 dataTable.addEventListener('click', (e)=>{
   if(e.target.classList.contains('todo-table-button')){
