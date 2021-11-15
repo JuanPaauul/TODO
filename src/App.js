@@ -14,6 +14,15 @@ function returnEtiqueta(etiqueta) {
 function getEtiquetaSeparadas(etiquetas) {
     etiquetas=etiquetas.replace(/ /g,'');
     let separadas = etiquetas.split(',');
+    separadas=eliminaRepetidas(separadas);
+    for (let i = 0; i < separadas.length; i++) {
+        separadas[i] = "#" + separadas[i];
+    }
+    return separadas;
+}
+
+function eliminaRepetidas(separadas)
+{
     let resultado=[]
     separadas.forEach(element => {
         if(!resultado.includes(element))
@@ -21,11 +30,7 @@ function getEtiquetaSeparadas(etiquetas) {
             resultado.push(element);
         }
     });
-    separadas=resultado;
-    for (let i = 0; i < separadas.length; i++) {
-        separadas[i] = "#" + separadas[i];
-    }
-    return separadas;
+    return resultado;
 }
 
 function insertNewTodoInTable(todoFormData) {
