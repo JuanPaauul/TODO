@@ -53,11 +53,13 @@ function insertNewTodoInTable(todoFormData) {
     newTypeCellRef.textContent = todoFormData.get("task-description");
     newTypeCellRef = newTodoRowRef.insertCell(6);
     newTypeCellRef.innerHTML = "<button class='todo-table-button'>Marcar como terminado</button>";
+    newTypeCellRef = newTodoRowRef.insertCell(7);
     newTypeCellRef.innerHTML = "<button class='edit-table-button'>editar</button>";
 
 }
 
 function markTaskAsDone(taskDone){
+    taskDone.deleteCell(-1);
     taskDone.deleteCell(-1);
     //let undoDone = taskDone.insertCell(-1);
     //undoDone.innerHTML = "<button class='undo-todo-table-button'>Desmarcar como terminado</button>";
