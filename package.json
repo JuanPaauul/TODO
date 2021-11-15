@@ -6,8 +6,8 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "jest --watch",
-    "test-once": "jest --coverage"
+    "test": "jest --watch --env='jsdom' --coverage",
+    "test-once": "jest --env='jsdom' --coverage"
   },
   "author": "Grupo 3",
   "license": "ISC",

@@ -2,7 +2,7 @@ import fs from "fs";
 describe("Gestor Tareas", () => {
   beforeAll(() => {
     document.body.innerHTML = fs.readFileSync("index.html", "utf8");
-    require("./gestorTareas.js");
+    require("./App.js");
   });
 
   /*it("deberia mostrar la tarea creada", () => {
@@ -16,13 +16,13 @@ describe("Gestor Tareas", () => {
   });*/
 
   it("Al iniciar no hay nada en la lista de tareas", () => {
-    const lista_elem = document.querySelector("#todo-table");
-    expect(lista_elem.rows.lenght).toEqual("1");
+    const rows = document.getElementById("todo-table").rows.length;
+    expect(rows).toEqual(1);
   });
 
   afterEach(() => {
-    document.body.innerHTML = fs.readFileSync("index.html", "utf8");
-    const lista_elem = document.querySelector("#lista-tareas");
+    //document.body.innerHTML = fs.readFileSync("index.html", "utf8");
+    const lista_elem = document.querySelector("#todo-table");
     lista_elem.innerHTML = "";
   });
 });
