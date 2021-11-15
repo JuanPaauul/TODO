@@ -6,6 +6,7 @@ import * as f from "./App.js";
       expect(f.getDate("2021-11-10")).toEqual(expectedDate);
     });
   });
+
   describe("Etiquetas ingresadas por usuario", () => {
     it("deberia retornar la etiqueta con #", () => {
       expect(f.returnEtiqueta("etiqueta1")).toEqual("#etiqueta1");
@@ -15,6 +16,9 @@ import * as f from "./App.js";
     });
     it("deberia retornar 3 etiquetas ", () => {
       expect(f.returnEtiqueta("etiqueta1,etiqueta2,etiqueta3")).toEqual("#etiqueta1 #etiqueta2 #etiqueta3");
+    });
+    it("Deberia retornar las etiquetas sin tomar en cuenta los espacios", () => {
+      expect(f.returnEtiqueta("etiqueta1, etiqueta2, etiqueta3")).toEqual("#etiqueta1 #etiqueta2 #etiqueta3");
     });
   });
 

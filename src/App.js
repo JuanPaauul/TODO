@@ -12,6 +12,7 @@ function returnEtiqueta(etiqueta) {
 }
 
 function getEtiquetaSeparadas(etiquetas) {
+    etiquetas=etiquetas.replace(/ /g,'');
     let separadas = etiquetas.split(',');
     for (let i = 0; i < separadas.length; i++) {
         separadas[i] = "#" + separadas[i];
