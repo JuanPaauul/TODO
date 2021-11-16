@@ -4,10 +4,10 @@ describe("Gestor Tareas", () => {
     document.body.innerHTML = fs.readFileSync("index.html", "utf8");
     require("./index.js");
   });
-  
+
   it("deberia mostrar la tarea creada", () => {
-    const tarea_elem = document.querySelector("#name-task");
-    const boton_elem = document.querySelector("#botonclick");
+    const tarea_elem = document.querySelector("#task-name");
+    const boton_elem = document.querySelector("#submit-button");
     const lista_elem = document.querySelector("#list-task");
     tarea_elem.value = "Primera Tarea";
     boton_elem.click();
