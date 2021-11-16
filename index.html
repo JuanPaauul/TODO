@@ -1,78 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO</title>
-    <style>
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
-        
-        td {
-            padding: 0 50px;
-        }
-    </style>
-</head>
-<html>
-
-<body>
-    <h1>Organizador de Tareas</h1>
-    <form id="Organizador-form">
-        <label for="Ingrese la cadena">Ingrese el nombre de la tarea:</label>
-        <input type="text" id="name-task" name="task-name" required/>
-        <br>
-        <label for="tipo-tarea">Seleccione el tipo de tarea:</label>
-        <select name="task-type">
-        <option value="Trabajo">Trabajo</option>
-        <option value="Estudio">Estudio</option>
-        <option value="Deberes">Deberes</option>
-      </select>
-        <br>
-        <label for="tipo-fecha">Seleccione la fecha limite: </label>
-        <input type="date" name="task-limit-date" id="fecha-limite" required>
-        <br>
-        <label for="Etiquetas">Ingrese sus etiquetas</label>
-        <input type="text" id="labelsTask" name="task-tag" placeholder="Etiqueta1,Etiqueta2..." required>
-        <br>
-        <label for="Descripcion">Ingrese una descripcion breve</label>
-        <input type="text" id="labelsTask" name="task-description" placeholder="Describeme">
-        <br><br>
-        <input id="botonclick" type="submit" value="Guardar" />
-        <br>
-        <!--<iframe src="https://giphy.com/embed/1ZDDyAaAA82ywDiyKs" width="480" height="480" frameBorder="0" class="giphy-embed"></iframe>-->
-    </form>
-    <h2>Tareas por realizar</h2>
-    <table id="todo-table">
-        <tr class="cabecera">
-            <th>Id</th>
-            <th>Tarea</th>
-            <th>Tipo</th>
-            <th>Fecha limite</th>
-            <th>Etiquetas</th>
-            <th>Descripcion</th>
-            <th>Terminados</th>
-            <th>Eliminar</th>
-
-        </tr>
-    </table>
-    <h2>Tareas terminadas</h2>
-    <table id="todo-done-table">
-        <tr class="cabecera">
-            <th>Id</th>
-            <th>Tarea</th>
-            <th>Tipo</th>
-            <th>Fecha limite</th>
-            <th>Etiquetas</th>
-            <th>Descripcion</th>
-        </tr>
-    </table>
-    <div id="list-task"></div>
-    <script type="module" src="./src/index.js"></script>
-</body>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TODO</title>
+        <style>
+            table,
+            th,
+            td {
+                border: 1px solid black;
+            }
+            
+            td {
+                padding: 0 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Organizador de Tareas</h1>
+        <form id="Organizador-form">
+            <label for="task-name">Ingrese el nombre de la tarea:</label>
+            <input type="text" name="task-name" required/>
+            <br>
+            <label for="task-type">Seleccione el tipo de tarea:</label>
+            <select name="task-type" >
+                <option value="Trabajo">Trabajo</option>
+                <option value="Estudio">Estudio</option>
+                <option value="Deberes">Deberes</option>
+            </select>
+            <br>
+            <label for="task-limit-date">Seleccione la fecha limite: </label>
+            <input type="date" name="task-limit-date" required>
+            <br>
+            <label for="task-tag">Ingrese sus etiquetas</label>
+            <input type="text" name="task-tag" placeholder="Etiqueta1,Etiqueta2..." required>
+            <br>
+            <label for="task-description">Ingrese una descripcion breve</label>
+            <input type="text" name="task-description" placeholder="Describeme">
+            <br><br>
+            <input type="submit" value="Guardar" />
+            <br>
+        </form>
+        <h2>Tareas por realizar</h2>
+        <table id="todo-table">
+            <tr class="cabecera">
+                <th>Id</th>
+                <th>Tarea</th>
+                <th>Tipo</th>
+                <th>Fecha limite</th>
+                <th>Etiquetas</th>
+                <th>Descripcion</th>
+                <th>Terminados</th>
+                <th>Eliminar</th>
+            </tr>
+        </table>
+        <h2>Tareas terminadas</h2>
+        <table id="todo-done-table">
+            <tr class="cabecera">
+                <th>Id</th>
+                <th>Tarea</th>
+                <th>Tipo</th>
+                <th>Fecha limite</th>
+                <th>Etiquetas</th>
+                <th>Descripcion</th>
+            </tr>
+        </table>
+        <div id="list-task"></div>
+        <script type="module" src="./src/index.js"></script>
+    </body>
 </html>
