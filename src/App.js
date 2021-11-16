@@ -53,8 +53,8 @@ function insertNewTodoInTable(todoFormData) {
     newTypeCellRef.textContent = todoFormData.get("task-description");
     newTypeCellRef = newTodoRowRef.insertCell(6);
     newTypeCellRef.innerHTML = "<button class='todo-table-button'>Marcar como terminado</button>";
-    newTypeCellRef = newTodoRowRef.insertCell(7);
-    newTypeCellRef.innerHTML = "<button class='edit-table-button'>editar</button>";
+    //newTypeCellRef = newTodoRowRef.insertCell(7);
+    //newTypeCellRef.innerHTML = "<button class='edit-table-button'>editar</button>";
 
 }
 
