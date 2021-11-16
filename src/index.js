@@ -11,7 +11,7 @@ form.addEventListener("submit", (event) => {
   let todoFormData = new FormData(form);
   todoFormData["task-id"]=todoIndex.toString();
   f.insertNewTodoInTable(todoFormData, todoIndex);
-  todoIndex =+ 1;
+  todoIndex = todoIndex + 1;
   form.reset();
 });
 dataTable.addEventListener('click', (e)=>{

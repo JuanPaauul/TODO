@@ -33,14 +33,13 @@ function eliminaRepetidas(separadas)
     return resultado;
 }
 
-function insertNewTodoInTable(todoFormData) {
+function insertNewTodoInTable(todoFormData, taskId) {
     let todoTableRef = document.getElementById("todo-table");
     let newTodoRowRef = todoTableRef.insertRow(-1);
-    let newTypeCellRef = newTodoRowRef.insertCell(0);
-    let tableId = todoTableRef.rows.length - 1;
     let taskTags = todoFormData.get("task-tag");
     let tags = returnEtiqueta(taskTags);
-    newTypeCellRef.textContent = todoTableRef.rows.length - 1;
+    let newTypeCellRef = newTodoRowRef.insertCell(0);
+    newTypeCellRef.textContent = taskId
     newTypeCellRef = newTodoRowRef.insertCell(1);
     newTypeCellRef.textContent = todoFormData.get("task-name")
     newTypeCellRef = newTodoRowRef.insertCell(2);
