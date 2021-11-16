@@ -5,6 +5,14 @@ import * as f from "./App.js";
       var expectedDate = new Date("2021-11-10").toISOString().split('T')[0];
       expect(f.getDate("2021-11-10")).toEqual(expectedDate);
     });
+    it("deberia retornar la fecha_2", () => {
+      var expectedDate = new Date("2018-12-11").toISOString().split('T')[0];
+      expect(f.getDate("2018-12-11")).toEqual(expectedDate);
+    });
+    it("deberia retornar la fecha_3", () => {
+      var expectedDate = new Date("1997-05-05").toISOString().split('T')[0];
+      expect(f.getDate("1997-05-05")).toEqual(expectedDate);
+    });
   });
 
   describe("Etiquetas ingresadas por usuario", () => {
