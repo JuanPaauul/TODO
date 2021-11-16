@@ -20,4 +20,5 @@ dataTable.addEventListener('click', (e)=>{
   }
   if(e.target.classList.contains('edit-table-button')){
     f.editTask(e.target.closest('tr')); }
+  f.deleteTask(e.target);
 });

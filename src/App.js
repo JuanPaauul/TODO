@@ -54,7 +54,7 @@ function insertNewTodoInTable(todoFormData) {
     newTypeCellRef = newTodoRowRef.insertCell(6);
     newTypeCellRef.innerHTML = "<button class='todo-table-button'>Marcar como terminado</button>";
     newTypeCellRef = newTodoRowRef.insertCell(7);
-    newTypeCellRef.innerHTML = "<a href='#' class='btn btn-danger'>Delete</a>";
+    newTypeCellRef.innerHTML = "<a href='#' class='btn btn-danger' name='delete'>Eliminar Tarea</a>";
 
 }
 
@@ -72,8 +72,14 @@ function editTask(){
     
 }
 
+function deleteTask(element) {
+    if (element.name === "delete") {
+        element.parentElement.parentElement.remove();
+    }
+}
+
 function getDate(date) {
     return new Date(date).toISOString().split('T')[0];
 }
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone,editTask};
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask};
