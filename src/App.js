@@ -53,8 +53,8 @@ function insertNewTodoInTable(todoFormData) {
     newTypeCellRef.textContent = todoFormData.get("task-description");
     newTypeCellRef = newTodoRowRef.insertCell(6);
     newTypeCellRef.innerHTML = "<button class='todo-table-button'>Marcar como terminado</button>";
-    newTypeCellRef = newTodoRowRef.insertCell(7);
-    newTypeCellRef.innerHTML = "<button class='edit-table-button'>editar</button>";
+    //newTypeCellRef = newTodoRowRef.insertCell(7);
+    //newTypeCellRef.innerHTML = "<button class='edit-table-button'>editar</button>";
 
 }
 
@@ -67,9 +67,11 @@ function markTaskAsDone(taskDone){
     let todoDoneTableRef = document.getElementById("todo-done-table");
     todoDoneTableRef.append(taskDone);
 }
-function editTask(){
-    document.getElementById("task-tag").value = taskTags;
-    
+function editTask(taskDone){
+    taskDone.cells[1].innerHTML = todoFormData.get("task-name")
+    console.log(todoFormData.get("task-name"));
+    taskDone.cells[2].innerHTML = todoFormData.get("task-type")
+    taskDone.cells[3].innerHTML = todoFormData.get("task-limit-date")
 }
 
 function getDate(date) {
