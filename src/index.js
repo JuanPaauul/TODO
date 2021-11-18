@@ -27,5 +27,25 @@ dataTable.addEventListener('click', (e)=>{
 
 filterform.addEventListener("submit", (event) => {
   event.preventDefault();
-  alert("Aa");
+  let eti=f.getEtiquetas();
+  let tipoFiltro=document.getElementById("task-filter");
+  let tabla = document.getElementById("todo-table").rows;
+  let etiAbuscar=document.getElementById("task-filter-input");
+  let row = tabla[tabla.length - 1];
+  let c=1;
+  if(tipoFiltro.value == "EtiquetasF")
+    {
+      eti.forEach(element => {
+        if(element.includes(etiAbuscar.value))
+        {
+          row=tabla[c];
+          f.filtertasks(row);
+        }
+        console.log("WTF");
+        console.log(element);
+        
+        c++;
+      });
+      
+    }
 });
