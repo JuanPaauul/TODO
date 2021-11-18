@@ -1,5 +1,12 @@
 let AllTask = Array();
 
+var etiquetas=[];
+
+function getEtiquetas()
+{
+    return etiquetas;
+}
+
 function createTask(nameTask, tipeTask) {
     AllTask.push(nameTask + " , " + tipeTask);
     return (AllTask);
@@ -48,6 +55,7 @@ function insertNewTodoInTable(todoFormData, taskId) {
     newTypeCellRef.textContent = todoFormData.get("task-limit-date")
     newTypeCellRef = newTodoRowRef.insertCell(4);
     newTypeCellRef.textContent = tags;
+    etiquetas.push(tags.value);
     newTypeCellRef = newTodoRowRef.insertCell(5);
     newTypeCellRef.textContent = todoFormData.get("task-description");
     newTypeCellRef = newTodoRowRef.insertCell(6);
@@ -66,6 +74,15 @@ function markTaskAsDone(taskDone){
     let todoDoneTableRef = document.getElementById("todo-done-table");
     todoDoneTableRef.append(taskDone);
 }
+
+function filtertasks(filtered)
+{
+    filtered.deleteCell(-1);
+    filtered.deleteCell(-1);
+    let todoDoneTableRef = document.getElementById("todo-table-filter");
+    todoDoneTableRef.append(filtered);
+}
+
 function editTask(){
     document.getElementById("task-tag").value = taskTags;
     
@@ -81,4 +98,4 @@ function getDate(date) {
     return new Date(date).toISOString().split('T')[0];
 }
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask};
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, filtertasks,getEtiquetas};

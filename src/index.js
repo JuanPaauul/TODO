@@ -1,7 +1,9 @@
 import * as f from "./App.js";
 
 const form = document.querySelector("#Organizador-form");
-const dataTable = document.querySelector("#todo-table")
+const filterform=document.querySelector("#filter-form");
+const dataTable = document.querySelector("#todo-table");
+var btnfilter =document.getElementById("#filter-button");
 
 var todoIndex = 0;
 var todoData = {};
@@ -21,4 +23,9 @@ dataTable.addEventListener('click', (e)=>{
   if(e.target.classList.contains('edit-table-button')){
     f.editTask(e.target.closest('tr')); }
   f.deleteTask(e.target);
+});
+
+filterform.addEventListener("submit", (event) => {
+  event.preventDefault();
+  alert("Aa");
 });
