@@ -33,6 +33,11 @@ filterform.addEventListener("submit", (event) => {
   let etiAbuscar=document.getElementById("task-filter-input");
   let row = tabla[tabla.length - 1];
   let c=1;
+  let tabla2=document.getElementById("todo-table-filter").rows;
+    /*for (let i = 1; i < tabla2.length; i++) 
+    {
+      tabla2[i].remove();
+    }*/
   if(tipoFiltro.value == "EtiquetasF")
     {
       eti.forEach(element => {
