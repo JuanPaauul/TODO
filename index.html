@@ -40,37 +40,10 @@
             <input type="text" id="task-description" name="task-description" placeholder="Describeme">
             <br><br>
             <input id="submit-button" type="submit" value="Guardar" />
-            <br><br>   
-        </form>
-
-        <form id="filter-form">
-            <label for="task-filter">Filtro: </label>
-            <input type="text" id="task-filter-input" name="task-filter-input">
-            <select id="task-filter" name="task-filter" >
-                <option value="EtiquetasF">Etiquetas</option>
-                <option value="NombreF">Nombre</option>
-                <option value="DescripcionF">Descripción</option>
-            </select>
-            <button id="filter-button" value="Filtrar">Filtrar</button>
             <br>
         </form>
-
         <h2>Tareas por realizar</h2>
         <table id="todo-table">
-            <tr class="cabecera">
-                <th>Id</th>
-                <th>Tarea</th>
-                   <th>Tipo</th>
-                   <th>Fecha limite</th>
-                   <th>Etiquetas</th>
-                   <th>Descripcion</th>
-                   <th>Terminados</th>
-                   <th>Eliminar</th>
-               </tr>
-        </table>
-
-        <h3>Tareas Filtradas</h3>
-        <table id="todo-table-filter">
             <tr class="cabecera">
                 <th>Id</th>
                 <th>Tarea</th>
@@ -78,10 +51,11 @@
                 <th>Fecha limite</th>
                 <th>Etiquetas</th>
                 <th>Descripcion</th>
+                <th>Terminados</th>
+                <th>Eliminar</th>
             </tr>
         </table>
-
-        <h3>Tareas terminadas</h3>
+        <h2>Tareas terminadas</h2>
         <table id="todo-done-table">
             <tr class="cabecera">
                 <th>Id</th>

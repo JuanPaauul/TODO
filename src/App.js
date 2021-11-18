@@ -1,12 +1,5 @@
 let AllTask = Array();
 
-var etiquetas=[];
-
-function getEtiquetas()
-{
-    return etiquetas;
-}
-
 function createTask(nameTask, tipeTask) {
     AllTask.push(nameTask + " , " + tipeTask);
     return (AllTask);
@@ -55,7 +48,6 @@ function insertNewTodoInTable(todoFormData, taskId) {
     newTypeCellRef.textContent = todoFormData.get("task-limit-date")
     newTypeCellRef = newTodoRowRef.insertCell(4);
     newTypeCellRef.textContent = tags;
-    etiquetas.push(tags);
     newTypeCellRef = newTodoRowRef.insertCell(5);
     newTypeCellRef.textContent = todoFormData.get("task-description");
     newTypeCellRef = newTodoRowRef.insertCell(6);
@@ -74,25 +66,6 @@ function markTaskAsDone(taskDone){
     let todoDoneTableRef = document.getElementById("todo-done-table");
     todoDoneTableRef.append(taskDone);
 }
-
-function filtertasks(filtered)
-{
-    let todoDoneTableRef = document.getElementById("todo-table-filter");
-    let newTodoRowRef = todoDoneTableRef.insertRow(-1);
-    let newTypeCellRef = newTodoRowRef.insertCell(0);
-    newTypeCellRef.textContent=filtered.cells[0].innerHTML;
-    newTypeCellRef=newTodoRowRef.insertCell(1);
-    newTypeCellRef.textContent=filtered.cells[1].innerHTML;
-    newTypeCellRef=newTodoRowRef.insertCell(2);
-    newTypeCellRef.textContent=filtered.cells[2].innerHTML;
-    newTypeCellRef=newTodoRowRef.insertCell(3);
-    newTypeCellRef.textContent=filtered.cells[3].innerHTML;
-    newTypeCellRef=newTodoRowRef.insertCell(4);
-    newTypeCellRef.textContent=filtered.cells[4].innerHTML;
-    newTypeCellRef=newTodoRowRef.insertCell(5);
-    newTypeCellRef.textContent=filtered.cells[5].innerHTML;
-}
-
 function editTask(){
     document.getElementById("task-tag").value = taskTags;
     
@@ -108,4 +81,4 @@ function getDate(date) {
     return new Date(date).toISOString().split('T')[0];
 }
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, filtertasks,getEtiquetas};
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask};
