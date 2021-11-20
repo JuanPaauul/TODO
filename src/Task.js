@@ -19,6 +19,13 @@ class Task {
     getDescription() {
         return this.description;
     }
+    setTask(newName, newType, newLimitDate, newDescription) {
+        this.name = newName;
+        this.type = newType;
+        this.limitdate = newLimitDate;
+        this.description = newDescription;
+
+    }
 }
 
 export default {Task}
