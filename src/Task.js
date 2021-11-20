@@ -7,6 +7,18 @@ class Task {
         this.label = label;
         this.description = description;
     }
+    getId() {
+		return this.id;
+	}
+    getName() {
+        return this.name;
+    }
+    getLimitDate() {
+        return this.limitdate;
+    }
+    getDescription() {
+        return this.description;
+    }
 }
 
 export default {Task}
