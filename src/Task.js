@@ -1,10 +1,10 @@
 class Task {
-    constructor(id, name, type, limitdate, label, description) {
+    constructor(id, name, type, limitdate, tag, description) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.limitdate = limitdate;
-        this.label = label;
+        this.tag = tag;
         this.description = description;
     }
     getId() {
@@ -28,4 +28,4 @@ class Task {
     }
 }
 
-export default {Task}
+export default Task;

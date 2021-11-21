@@ -1,15 +1,28 @@
 import * as f from "./App.js";
+import TasksList from "./TasksList.js";
 
 const form = document.querySelector("#Organizador-form");
-const filterform=document.querySelector("#filter-form");
+const filterform = document.querySelector("#filter-form");
 const dataTable = document.querySelector("#todo-table");
 var btnfilter =document.getElementById("#filter-button");
 
 var todoIndex = 0;
 var todoData = {};
 
+let listOfTasks = new TasksList();
+const listTask = document.querySelector("#list-task");
+const taskName = document.querySelector("#task-name");
+const taskType = document.querySelector("#task-type");
+const taskLimitDate = document.querySelector("#task-limit-date");
+const taskTags = document.querySelector("#task-tag");
+const taskDescription = document.querySelector("#task-description");
+
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  if (listTask.innerHTML == "") {
+    listOfTasks = new TasksList();
+  }
   let todoFormData = new FormData(form);
   todoFormData["task-id"]=todoIndex.toString();
   f.insertNewTodoInTable(todoFormData, todoIndex);

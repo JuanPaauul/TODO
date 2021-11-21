@@ -4,11 +4,10 @@ class TasksList {
     constructor() {
         this.tasksList = [];
     }
-
-    addTask(newName, newType, newLimitDate, newDescription) {
-        let task = new Task(newName, newType, newLimitDate, newDescription);
+    addTask(id, name, type, limitdate, label, description) {
+        let task = new Task(id, name, type, limitdate, label, description);
         this.tasksList.push(task);
     }
 }
 
-export default {TasksList}
+export default TasksList;

@@ -18,6 +18,11 @@ describe("Gestor Tareas", () => {
     expect(value).toEqual("Primera Tarea");
   });
 
+  it("Al iniciar no hay nada en la lista de tareas", () => {
+    const lista_elem = document.querySelector("#list-task");
+    expect(lista_elem.innerHTML).toEqual("");
+  });
+
   afterEach(() => {
     const lista_elem = document.querySelector("#list-task");
     lista_elem.innerHTML = "";
