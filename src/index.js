@@ -51,14 +51,18 @@ filterform.addEventListener("submit", (event) => {
   if(tipoFiltro.value == "EtiquetasF")
   {
     eti.forEach(element => {
-      if(element.includes(etiAbuscar.value))
-      {
-        row=tabla[c];
-        f.filtertasks(row);
-      }        
+      let separado=element.split(' ');
+      separado.forEach(elemento => {
+        if(elemento === "#"+etiAbuscar.value)
+        {
+          row=tabla[c];
+          f.filtertasks(row);
+        } 
+      });
+             
       c++;
     });
-    
+
   }
   filterform.reset();
 });
