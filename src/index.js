@@ -39,7 +39,9 @@ dataTable.addEventListener('click', (e)=>{
 });
 
 filterform.addEventListener("submit", (event) => {
+  //filterform.reset();
   event.preventDefault();
+  f.clearTable("todo-table-filter");
   let eti=f.getEtiquetas();
   let tipoFiltro=document.getElementById("task-filter");
   let tabla = document.getElementById("todo-table").rows;
@@ -47,18 +49,16 @@ filterform.addEventListener("submit", (event) => {
   let row = tabla[tabla.length - 1];
   let c=1;
   if(tipoFiltro.value == "EtiquetasF")
-    {
-      eti.forEach(element => {
-        if(element.includes(etiAbuscar.value))
-        {
-          row=tabla[c];
-          f.filtertasks(row);
-        }
-        console.log("WTF");
-        console.log(element);
-        
-        c++;
-      });
-      
-    }
+  {
+    eti.forEach(element => {
+      if(element.includes(etiAbuscar.value))
+      {
+        row=tabla[c];
+        f.filtertasks(row);
+      }        
+      c++;
+    });
+    
+  }
+  filterform.reset();
 });

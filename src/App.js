@@ -93,6 +93,15 @@ function filtertasks(filtered)
     newTypeCellRef.textContent=filtered.cells[5].innerHTML;
 }
 
+function clearTable(TableID)
+{
+    let TableRef = document.getElementById(TableID).rows;
+    let size=TableRef.length;
+    for (let i = 1; i < size; i++) {
+        TableRef[i].remove();        
+    }
+}
+
 function editTask(){
     document.getElementById("task-tag").value = taskTags;
     
@@ -108,4 +117,4 @@ function getDate(date) {
     return new Date(date).toISOString().split('T')[0];
 }
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, filtertasks,getEtiquetas};
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, filtertasks,getEtiquetas,clearTable};
