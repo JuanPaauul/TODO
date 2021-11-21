@@ -42,27 +42,18 @@ filterform.addEventListener("submit", (event) => {
   //filterform.reset();
   event.preventDefault();
   f.clearTable("todo-table-filter");
-  let eti=f.getEtiquetas();
   let tipoFiltro=document.getElementById("task-filter");
-  let tabla = document.getElementById("todo-table").rows;
-  let etiAbuscar=document.getElementById("task-filter-input");
-  let row = tabla[tabla.length - 1];
-  let c=1;
-  if(tipoFiltro.value == "EtiquetasF")
-  {
-    eti.forEach(element => {
-      let separado=element.split(' ');
-      separado.forEach(elemento => {
-        if(elemento === "#"+etiAbuscar.value)
-        {
-          row=tabla[c];
-          f.filtertasks(row);
-        } 
-      });
-             
-      c++;
-    });
+  let elementoABuscar=document.getElementById("task-filter-input");
+  switch (tipoFiltro.value) {
+    case "EtiquetasF":
+      f.filtrarEtiquetas(elementoABuscar.value);
+      break;
+    case "DescripcionF":
 
+      break;
+
+    default:
+      break;
   }
   filterform.reset();
 });

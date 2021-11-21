@@ -117,4 +117,23 @@ function getDate(date) {
     return new Date(date).toISOString().split('T')[0];
 }
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, filtertasks,getEtiquetas,clearTable};
+function filtrarEtiquetas(etiAbuscar)
+{
+    let eti=getEtiquetas();
+    let c=1;
+    let tabla = document.getElementById("todo-table").rows;
+    let row = tabla[tabla.length - 1];
+    eti.forEach(element => {
+        let separado=element.split(' ');
+        separado.forEach(elemento => {
+          if(elemento === "#"+etiAbuscar)
+          {
+            row=tabla[c];
+            filtertasks(row);
+          } 
+        });               
+        c++;
+      });
+}
+
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, filtertasks,getEtiquetas,clearTable,filtrarEtiquetas};
