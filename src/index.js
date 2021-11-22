@@ -23,6 +23,9 @@ form.addEventListener("submit", (event) => {
   if (listTask.innerHTML == "") {
     listOfTasks = new TasksList();
   }
+  listOfTasks = new TasksList();
+  listOfTasks.addTask(taskName,taskType,taskLimitDate,taskTags,taskDescription);
+  
   let todoFormData = new FormData(form);
   todoFormData["task-id"]=todoIndex.toString();
   f.insertNewTodoInTable(todoFormData, todoIndex);

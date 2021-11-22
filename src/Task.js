@@ -1,22 +1,29 @@
 class Task {
+    //id=0;
+    name;
+    id;
+    type;
+    limitdate;
+    tag;
+    description;
     constructor(id, name, type, limitdate, tag, description) {
-        this.id = id;
+       this.id = id;
         this.name = name;
         this.type = type;
         this.limitdate = limitdate;
         this.tag = tag;
         this.description = description;
     }
-    getId() {
+    get Id() {
 		return this.id;
 	}
-    getName() {
+    get Name() {
         return this.name;
     }
-    getLimitDate() {
+    get LimitDate() {
         return this.limitdate;
     }
-    getDescription() {
+    get Description() {
         return this.description;
     }
     setTask(newName, newType, newLimitDate, newDescription) {
