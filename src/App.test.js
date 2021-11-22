@@ -14,7 +14,42 @@ import * as f from "./App.js";
       expect(f.getDate("1997-05-05")).toEqual(expectedDate);
     });
   });
+  describe("Categorias", () => {
+    beforeAll(() => {
+      document.body.innerHTML = fs.readFileSync("index.html", "utf8");
+      require("./index.js");
+    });
 
+    it("deberia retornar la categoria por defecto", () => {
+      const taskType = document.getElementById("task-id");
+      //const boton_elem = document.getElementById("type-task").value = "Trabajo";
+      if(taskType != null){
+        var categoria = String(taskType.value);
+      }
+      expect( categoria).toEqual("Estudio");
+    });
+    it("deberia retornar la categoria elegida", () => {
+      const taskType = document.getElementById("task-id");
+      if(taskType != null){
+        taskType.value="Trabajo";
+        var categoria = String(taskType.value);
+      }
+      expect( categoria).toEqual("Trabajo");
+    });
+    it("deberia retornar la categoria elegida", () => {
+      const taskType = document.getElementById("task-id");
+      if(taskType != null){
+        taskType.value="Deberes";
+        var categoria = String(taskType.value);
+      }
+      expect( categoria).toEqual("Deberes");
+    });
+
+    afterEach(() => {
+      const lista_elem = document.querySelector("#list-task");
+      lista_elem.innerHTML = "";
+    });
+  });
   describe("Etiquetas ingresadas por usuario", () => {
     it("deberia retornar la etiqueta con #", () => {
       expect(f.returnEtiqueta("etiqueta1")).toEqual("#etiqueta1");
