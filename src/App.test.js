@@ -1,5 +1,5 @@
 import * as f from "./App.js";
-
+import fs from "fs";
   describe("Fechas", () => {
     it("deberia retornar la fecha", () => {
       var expectedDate = new Date("2021-11-10").toISOString().split('T')[0];
@@ -21,7 +21,7 @@ import * as f from "./App.js";
     });
 
     it("deberia retornar la categoria por defecto", () => {
-      const taskType = document.getElementById("task-id");
+      const taskType = document.getElementById("task-type");
       //const boton_elem = document.getElementById("type-task").value = "Trabajo";
       if(taskType != null){
         var categoria = String(taskType.value);
@@ -29,7 +29,7 @@ import * as f from "./App.js";
       expect( categoria).toEqual("Estudio");
     });
     it("deberia retornar la categoria elegida", () => {
-      const taskType = document.getElementById("task-id");
+      const taskType = document.getElementById("task-type");
       if(taskType != null){
         taskType.value="Trabajo";
         var categoria = String(taskType.value);
@@ -37,7 +37,7 @@ import * as f from "./App.js";
       expect( categoria).toEqual("Trabajo");
     });
     it("deberia retornar la categoria elegida", () => {
-      const taskType = document.getElementById("task-id");
+      const taskType = document.getElementById("task-type");
       if(taskType != null){
         taskType.value="Deberes";
         var categoria = String(taskType.value);
