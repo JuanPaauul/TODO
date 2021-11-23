@@ -37,6 +37,15 @@ class TasksList {
             id = idList;
         return id;
     }
+    getTaskByDate(taskDate){
+        let id;
+        this.tasksList.forEach(function(task){
+            if(task.LimitDate == taskDate){
+                id = task.Id;
+            } 
+        });
+        return id;
+    }
     getTask(id){
         return this.tasksList[id];
     }

@@ -233,4 +233,11 @@ describe("Funcionamiento de la clase TaskList",() => {
         let expectedList = [1,2];
         expect(task.getTaskByType("2nd type")).toEqual(expectedList);
       });
+
+      it("Deberia retornar la id de la tarea con la fecha indicada (buscar por fecha)",()=>{
+        let task = new TasksList();
+        task.addTask("Task","type","1/11/1111","tag","description");
+        task.addTask("Task","type","2/12/2000","tag","description");
+        expect(task.getTaskByDate("2/12/2000")).toEqual(1);
+      });
 });
