@@ -237,7 +237,7 @@ describe("Funcionamiento de la clase TaskList",() => {
         let task = new TasksList();
         task.addTask("Task","type","1/11/1111","tag","description");
         task.addTask("Task","type","2/12/2000","tag","description");
-        expect(task.getTaskByDate("2/12/2000")).toEqual(1);
+        expect(task.getTaskByDate("2/12/2000")).toEqual([1]);
       });
       it("Deberia retornar las ids de las tareas en una lista con la fecha indicada (buscar por fecha)",()=>{
         let task = new TasksList();
