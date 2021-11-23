@@ -51,6 +51,15 @@ class TasksList {
             id = idList;
         return id;
     }
+    getTaskByTag(taskTag){
+        let id;
+        this.tasksList.forEach(function(task){
+            if(task.Tag == taskTag){
+                id = task.Id;
+            } 
+        });
+        return id;
+    }
     getTask(id){
         return this.tasksList[id];
     }
