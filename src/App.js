@@ -1,9 +1,9 @@
 let AllTask = Array();
 
-var etiquetas=[];
+var etiquetas = [];
+var tareas = [];
 
-function getEtiquetas()
-{
+function getEtiquetas() {
     return etiquetas;
 }
 
@@ -19,21 +19,19 @@ function returnEtiqueta(etiqueta) {
 }
 
 function getEtiquetaSeparadas(etiquetas) {
-    etiquetas=etiquetas.replace(/ /g,'');
+    etiquetas = etiquetas.replace(/ /g, '');
     let separadas = etiquetas.split(',');
-    separadas=eliminaRepetidas(separadas);
+    separadas = eliminaRepetidas(separadas);
     for (let i = 0; i < separadas.length; i++) {
         separadas[i] = "#" + separadas[i];
     }
     return separadas;
 }
 
-function eliminaRepetidas(separadas)
-{
-    let resultado=[]
+function eliminaRepetidas(separadas) {
+    let resultado = []
     separadas.forEach(element => {
-        if(!resultado.includes(element))
-        {
+        if (!resultado.includes(element)) {
             resultado.push(element);
         }
     });
@@ -46,26 +44,35 @@ function insertNewTodoInTable(todoFormData, taskId) {
     let taskTags = todoFormData.get("task-tag");
     let tags = returnEtiqueta(taskTags);
     let newTypeCellRef = newTodoRowRef.insertCell(0);
-    newTypeCellRef.textContent = taskId
+    var tarea = [];
+    newTypeCellRef.textContent = taskId;
     newTypeCellRef = newTodoRowRef.insertCell(1);
-    newTypeCellRef.textContent = todoFormData.get("task-name")
+    tarea.taskName = todoFormData.get("task-name");
+    //tarea.taskId=taskId;
+    newTypeCellRef.textContent = todoFormData.get("task-name");
     newTypeCellRef = newTodoRowRef.insertCell(2);
-    newTypeCellRef.textContent = todoFormData.get("task-type")
+    newTypeCellRef.textContent = todoFormData.get("task-type");
+    tarea.taskType = todoFormData.get("task-type");
     newTypeCellRef = newTodoRowRef.insertCell(3);
-    newTypeCellRef.textContent = todoFormData.get("task-limit-date")
+    newTypeCellRef.textContent = todoFormData.get("task-limit-date");
+    tarea.taskLimitDate = todoFormData.get("task-limit-date");
     newTypeCellRef = newTodoRowRef.insertCell(4);
     newTypeCellRef.textContent = tags;
     etiquetas.push(tags);
+    tarea.tags = tags;
     newTypeCellRef = newTodoRowRef.insertCell(5);
     newTypeCellRef.textContent = todoFormData.get("task-description");
+    tarea.taskDescription = todoFormData.get("task-description");
     newTypeCellRef = newTodoRowRef.insertCell(6);
     newTypeCellRef.innerHTML = "<button class='todo-table-button'>Marcar como terminado</button>";
     newTypeCellRef = newTodoRowRef.insertCell(7);
     newTypeCellRef.innerHTML = "<a href='#' class='btn btn-danger' name='delete'>Eliminar Tarea</a>";
-
+    tareas.push(tarea);
+    console.log("tarea: ", tareas);
+    return tarea;
 }
 
-function markTaskAsDone(taskDone){
+function markTaskAsDone(taskDone) {
     taskDone.deleteCell(-1);
     taskDone.deleteCell(-1);
     //let undoDone = taskDone.insertCell(-1);
@@ -75,36 +82,34 @@ function markTaskAsDone(taskDone){
     todoDoneTableRef.append(taskDone);
 }
 
-function filtertasks(filtered)
-{
+function filtertasks(filtered) {
     let todoDoneTableRef = document.getElementById("todo-table-filter");
     let newTodoRowRef = todoDoneTableRef.insertRow(-1);
     let newTypeCellRef = newTodoRowRef.insertCell(0);
-    newTypeCellRef.textContent=filtered.cells[0].innerHTML;
-    newTypeCellRef=newTodoRowRef.insertCell(1);
-    newTypeCellRef.textContent=filtered.cells[1].innerHTML;
-    newTypeCellRef=newTodoRowRef.insertCell(2);
-    newTypeCellRef.textContent=filtered.cells[2].innerHTML;
-    newTypeCellRef=newTodoRowRef.insertCell(3);
-    newTypeCellRef.textContent=filtered.cells[3].innerHTML;
-    newTypeCellRef=newTodoRowRef.insertCell(4);
-    newTypeCellRef.textContent=filtered.cells[4].innerHTML;
-    newTypeCellRef=newTodoRowRef.insertCell(5);
-    newTypeCellRef.textContent=filtered.cells[5].innerHTML;
+    newTypeCellRef.textContent = filtered.cells[0].innerHTML;
+    newTypeCellRef = newTodoRowRef.insertCell(1);
+    newTypeCellRef.textContent = filtered.cells[1].innerHTML;
+    newTypeCellRef = newTodoRowRef.insertCell(2);
+    newTypeCellRef.textContent = filtered.cells[2].innerHTML;
+    newTypeCellRef = newTodoRowRef.insertCell(3);
+    newTypeCellRef.textContent = filtered.cells[3].innerHTML;
+    newTypeCellRef = newTodoRowRef.insertCell(4);
+    newTypeCellRef.textContent = filtered.cells[4].innerHTML;
+    newTypeCellRef = newTodoRowRef.insertCell(5);
+    newTypeCellRef.textContent = filtered.cells[5].innerHTML;
 }
 
-function clearTable(TableID)
-{
+function clearTable(TableID) {
     let TableRef = document.getElementById(TableID).rows;
-    let size=TableRef.length;
+    let size = TableRef.length;
     for (let i = 1; i < size; i++) {
-        TableRef[i].remove();        
+        TableRef[i].remove();
     }
 }
 
-function editTask(){
+function editTask() {
     document.getElementById("task-tag").value = taskTags;
-    
+
 }
 
 function deleteTask(element) {
@@ -117,23 +122,21 @@ function getDate(date) {
     return new Date(date).toISOString().split('T')[0];
 }
 
-function filtrarEtiquetas(etiAbuscar)
-{
-    let eti=getEtiquetas();
-    let c=1;
+function filtrarEtiquetas(etiAbuscar) {
+    let eti = getEtiquetas();
+    let c = 1;
     let tabla = document.getElementById("todo-table").rows;
     let row = tabla[tabla.length - 1];
     eti.forEach(element => {
-        let separado=element.split(' ');
+        let separado = element.split(' ');
         separado.forEach(elemento => {
-          if(elemento === "#"+etiAbuscar)
-          {
-            row=tabla[c];
-            filtertasks(row);
-          } 
-        });               
+            if (elemento === "#" + etiAbuscar) {
+                row = tabla[c];
+                filtertasks(row);
+            }
+        });
         c++;
-      });
+    });
 }
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, filtertasks,getEtiquetas,clearTable,filtrarEtiquetas};
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, filtertasks, getEtiquetas, clearTable, filtrarEtiquetas };
