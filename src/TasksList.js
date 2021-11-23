@@ -9,6 +9,15 @@ class TasksList {
     get listLength(){
         return this.lastTaskInserted;
     }
+    getTaskByName(taskName){
+        let id;
+        this.tasksList.forEach(function(task){
+            if(task.Name == taskName){
+                id = task.Id;
+            } 
+        });
+        return id;
+    }
     getTask(id){
         return this.tasksList[id];
     }
