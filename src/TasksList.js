@@ -9,6 +9,9 @@ class TasksList {
     get listLength(){
         return this.lastTaskInserted;
     }
+    getTask(id){
+        return this.tasksList[id];
+    }
     addTask( name, type, limitdate, label, description) {
         const task = new Task(this.lastTaskInserted, name, type, limitdate, label, description);
         this.tasksList.push(task);

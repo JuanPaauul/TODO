@@ -192,4 +192,9 @@ describe("Funcionamiento de la clase TaskList",() => {
         task.addTask("test","test","1/11/1111","test","test");
         expect(task.listLength).toEqual(1);
     });
+    it("Deberia retornar el nombre de la tarea ingresada",()=>{
+        let task = new TasksList();
+        task.addTask("1st Task","type","1/11/1111","tag","description");
+        expect(task.getTask(0).Name).toEqual("1st Task");
+    });
 });
