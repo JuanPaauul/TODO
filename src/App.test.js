@@ -174,4 +174,8 @@ describe("Parametros de la clase Task",() => {
         let task = new Task(0,"test","test","1/11/1111","tag","description");
         expect(task.Tag).toEqual("tag");
     });
+    it("Deberia retornar la descripcion de la tarea",()=>{
+        let task = new Task(0,"test","test","1/11/1111","tag","description");
+        expect(task.Description).toEqual("description");
+      });
   });
