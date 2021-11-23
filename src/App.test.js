@@ -252,7 +252,7 @@ describe("Funcionamiento de la clase TaskList",() => {
         let task = new TasksList();
         task.addTask("Task","type","1/11/1111","a tag","description");
         task.addTask("Task","type","1/11/1111","another tag","description");
-        expect(task.getTaskByTag("a tag")).toEqual(0);
+        expect(task.getTaskByTag("a tag")).toEqual([0]);
       });
       it("Deberia retornar las ids de las tareas en una lista con la etiqueta indicada (buscar por etiqueta)",()=>{
         let task = new TasksList();
