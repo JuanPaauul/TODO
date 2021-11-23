@@ -39,11 +39,16 @@ class TasksList {
     }
     getTaskByDate(taskDate){
         let id;
+        let idList = [];
         this.tasksList.forEach(function(task){
             if(task.LimitDate == taskDate){
-                id = task.Id;
+                idList.push(task.Id);
             } 
         });
+        if(idList.length == 1)
+            id = idList[0];
+        else
+            id = idList;
         return id;
     }
     getTask(id){
