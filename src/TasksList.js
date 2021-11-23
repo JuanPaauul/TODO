@@ -19,18 +19,13 @@ class TasksList {
         return idList;
     }
     getTaskByType(taskType){
-        let id;
         let idList = [];
-        this.tasksList.forEach(function(task){
-            if(task.Type == taskType){
-                idList.push(task.Id);
-            } 
-        });
-        if(idList.length == 1)
-            id = idList[0];
-        else
-            id = idList;
-        return id;
+        for (var i = 0; i < this.tasksList.length; i++) {
+            if (this.tasksList[i].Type == taskType) {
+                idList.push(this.tasksList[i].Id);
+            }
+        }
+        return idList;
     }
     getTaskByDate(taskDate){
         let id;
