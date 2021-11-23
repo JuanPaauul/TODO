@@ -46,18 +46,13 @@ class TasksList {
         return idList;
     }
     getTaskByDescription(taskDescription){
-        let id;
         let idList = [];
-        this.tasksList.forEach(function(task){
-            if(task.Description == taskDescription){
-                idList.push(task.Id);
-            } 
-        });
-        if(idList.length == 1)
-            id = idList[0];
-        else
-            id = idList;
-        return id;
+        for (var i = 0; i < this.tasksList.length; i++) {
+            if (this.tasksList[i].Description == taskDescription) {
+                idList.push(this.tasksList[i].Id);
+            }
+        }
+        return idList;
     }
     getTask(id){
         return this.tasksList[id];
