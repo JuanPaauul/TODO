@@ -225,4 +225,12 @@ describe("Funcionamiento de la clase TaskList",() => {
         task.addTask("Task","2nd type","1/11/1111","tag","description");
         expect(task.getTaskByType("2nd type")).toEqual(1);
       });
+      it("Deberia retornar las ids de las tareas en una lista con el tipo indicado (buscar por tipo)",()=>{
+        let task = new TasksList();
+        task.addTask("Task","1st type","1/11/1111","tag","description");
+        task.addTask("Task","2nd type","1/11/1111","tag","description");
+        task.addTask("Task","2nd type","1/11/1111","2nd tag","2nd description");
+        let expectedList = [1,2];
+        expect(task.getTaskByType("2nd type")).toEqual(expectedList);
+      });
 });
