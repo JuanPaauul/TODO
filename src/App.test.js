@@ -1,5 +1,6 @@
 import * as f from "./App.js";
 import fs from "fs";
+import Task from "./Task.js";
 
 function getFormData(object) {
     const formData = new FormData();
@@ -155,3 +156,10 @@ describe("El tipo de trabajo debe ser insertado correctamente", () => {
     });
 
 });
+
+describe("Parametros de la clase Task",() => {
+    it("Deberia retornar el nombre de la tarea",()=>{
+      let task = new Task(0,"name","type","1/11/1111","tag","description");
+      expect(task.Name).toEqual("name");
+    });
+  });
