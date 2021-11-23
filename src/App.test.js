@@ -1,6 +1,7 @@
 import * as f from "./App.js";
 import fs from "fs";
 import Task from "./Task.js";
+import TasksList from "./TasksList.js";
 
 function getFormData(object) {
     const formData = new FormData();
@@ -184,3 +185,11 @@ describe("Parametros de la clase Task",() => {
         expect(task.Name).toEqual("newName");
     });
   });
+
+describe("Funcionamiento de la clase TaskList",() => {
+    it("Deberia agregar una Task a la lista y obtener el tamano de la misma una vez ingresado",()=>{
+        let task = new TasksList();
+        task.addTask("test","test","1/11/1111","test","test");
+        expect(task.listLength).toEqual(1);
+    });
+});
