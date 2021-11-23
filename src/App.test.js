@@ -180,8 +180,7 @@ describe("Parametros de la clase Task",() => {
         expect(task.Description).toEqual("description");
     });
     it("Deberia retornar el nombre de una tarea editada",()=>{
-        let task = new Task(0,"test","test","1/11/1111","test","test");
-        task.setTask("newName","1/11/1111","test","test")
+        let task = new Task(0,"newName","test","1/11/1111","test","test");
         expect(task.Name).toEqual("newName");
     });
   });
@@ -208,7 +207,7 @@ describe("Funcionamiento de la clase TaskList",() => {
         let task = new TasksList();
         task.addTask("1st Task","type","1/11/1111","tag","description");
         task.addTask("2nd Task","type","1/11/1111","tag","description");
-        expect(task.getTaskByName("2nd Task")).toEqual(1);
+        expect(task.getTaskByName("2nd Task")).toEqual([1]);
       });
       it("Deberia retornar las ids de las tareas en una lista con el nombre indicado (buscar por nombre)",()=>{
         let task = new TasksList();

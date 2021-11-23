@@ -9,19 +9,14 @@ class TasksList {
     get listLength(){
         return this.lastTaskInserted;
     }
-    getTaskByName(taskName){
-        let id;
+    getTaskByName(taskName) {
         let idList = [];
-        this.tasksList.forEach(function(task){
-            if(task.Name == taskName){
-                idList.push(task.Id);
-            } 
-        });
-        if(idList.length == 1)
-            id = idList[0];
-        else
-            id = idList;
-        return id;
+        for (var i = 0; i < this.tasksList.length; i++) {
+            if (this.tasksList[i].Name == taskName) {
+                idList.push(this.tasksList[i].Id);
+            }
+        }
+        return idList;
     }
     getTaskByType(taskType){
         let id;
