@@ -177,5 +177,10 @@ describe("Parametros de la clase Task",() => {
     it("Deberia retornar la descripcion de la tarea",()=>{
         let task = new Task(0,"test","test","1/11/1111","tag","description");
         expect(task.Description).toEqual("description");
-      });
+    });
+    it("Deberia retornar el nombre de una tarea editada",()=>{
+        let task = new Task(0,"test","test","1/11/1111","test","test");
+        task.setTask("newName","1/11/1111","test","test")
+        expect(task.Name).toEqual("newName");
+    });
   });
