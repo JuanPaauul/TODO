@@ -165,5 +165,9 @@ describe("Parametros de la clase Task",() => {
     it("Deberia retornar el tipo de la tarea",()=>{
         let task = new Task(0,"name","type","1/11/1111","tag","description");
         expect(task.Type).toEqual("type");
-      });
+    });
+    it("Deberia retornar la fecha de la tarea",()=>{
+        let task = new Task(0,"test","test","1/11/1111","tag","description");
+        expect(task.LimitDate).toEqual("1/11/1111");
+    });
   });
