@@ -23,6 +23,15 @@ class TasksList {
             id = idList;
         return id;
     }
+    getTaskByType(taskType){
+        let id;
+        this.tasksList.forEach(function(task){
+            if(task.Type == taskType){
+                id = task.Id;
+            } 
+        });
+        return id;
+    }
     getTask(id){
         return this.tasksList[id];
     }
