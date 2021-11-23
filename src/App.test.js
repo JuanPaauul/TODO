@@ -107,3 +107,19 @@ describe("Los tags deben ser insertados correctamente", () => {
     });
 
 });
+describe("el nombre debe ser insertado correctamente", () => {
+    it("deberia retornar el nombre", () => {
+        var taskDescription = {
+            "task-description": "Some Item",
+            "task-tag": "tag",
+            "task-name": "name",
+            "task-limit-date": "2018-12-11",
+            "task-type": "type"
+        }
+        var fd = getFormData(taskDescription);
+
+        expect(f.insertNewTodoInTable(fd, 0).taskName).toEqual('name');
+
+    });
+
+});
