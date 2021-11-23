@@ -139,3 +139,19 @@ describe("la fecha debe ser insertada correctamente", () => {
     });
 
 });
+describe("El tipo de trabajo debe ser insertado correctamente", () => {
+    it("deberia retornar el tipo de trabajo", () => {
+        var taskDescription = {
+            "task-description": "Some Item",
+            "task-tag": "tag",
+            "task-name": "name",
+            "task-limit-date": "2018-12-11",
+            "task-type": "type"
+        }
+        var fd = getFormData(taskDescription);
+
+        expect(f.insertNewTodoInTable(fd, 0).taskType).toEqual('type');
+
+    });
+
+});
