@@ -170,4 +170,8 @@ describe("Parametros de la clase Task",() => {
         let task = new Task(0,"test","test","1/11/1111","tag","description");
         expect(task.LimitDate).toEqual("1/11/1111");
     });
+    it("Deberia retornar la etiqueta de la tarea",()=>{
+        let task = new Task(0,"test","test","1/11/1111","tag","description");
+        expect(task.Tag).toEqual("tag");
+    });
   });

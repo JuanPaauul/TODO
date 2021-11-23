@@ -26,6 +26,9 @@ class Task {
     get LimitDate() {
         return this.limitdate;
     }
+    get Tag() {
+        return this.tag;
+    }
     get Description() {
         return this.description;
     }
