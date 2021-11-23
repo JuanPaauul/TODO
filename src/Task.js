@@ -20,6 +20,9 @@ class Task {
     get Name() {
         return this.name;
     }
+    get Type() {
+        return this.type;
+    }
     get LimitDate() {
         return this.limitdate;
     }
