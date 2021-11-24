@@ -1,13 +1,11 @@
 import Task from "./Task.js"
 
 class TasksList {
-    lastTaskInserted;
     constructor() {
         this.tasksList = [];
-        this.lastTaskInserted =0;
     }
     get listLength(){
-        return this.lastTaskInserted;
+        return this.tasksList.length;
     }
     getTaskByName(taskName) {
         let idList = [];
@@ -57,10 +55,11 @@ class TasksList {
     getTask(id){
         return this.tasksList[id];
     }
-    addTask( name, type, limitdate, label, description) {
-        const task = new Task(this.lastTaskInserted, name, type, limitdate, label, description);
+    addTask( name, type, limitdate, tags, description) {
+        var id = this.listLength;
+        var task = new Task(id, name, type, limitdate, tags, description);
         this.tasksList.push(task);
-        this.lastTaskInserted=this.lastTaskInserted+1;
+        id = id + 1;
     }
 }
 
