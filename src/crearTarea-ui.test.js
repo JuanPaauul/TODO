@@ -18,6 +18,28 @@ describe("Gestor Tareas", () => {
     expect(value).toEqual("Primera Tarea");
   });
 
+  it("deberia mostrar la tarea filtrada", () => {
+    const tarea_elem = document.querySelector("#task-name");
+    const etiqueta_elem = document.querySelector("#task-tag");
+    const input_etiqueta_elem = document.querySelector("#task-filter-input");
+    const boton_elem = document.querySelector("#submit-button");
+    const filterboton_elem = document.querySelector("#filter-button");
+    const lista_elem = document.querySelector("#list-task");
+    tarea_elem.value = "Primera Tarea";
+    etiqueta_elem.value="Etiqueta";
+    boton_elem.click();
+    input_etiqueta_elem.value="Etiqueta";
+    filterboton_elem.click();
+    let tabla_filtrada=document.getElementById("todo-table-filter").rows;
+    let last = tabla_filtrada[tabla_filtrada.length - 1];
+    let cell = last.cells[4];//valor en la columna 4 de la ultima fila de la tabla filtrada que corresponde a las etiquetas
+    let cell2=last.cells[1];// valor en la columna 1 de la ultima fila de la tabla filtrada q corresponde al nombre
+    let value1 = cell.innerHTML;
+    let value2=cell2.innerHTML;
+    expect(value2).toEqual("Primera Tarea");
+    expect(value1).toEqual("#Etiqueta");
+  });
+
   it("Al iniciar no hay nada en la lista de tareas", () => {
     const lista_elem = document.querySelector("#list-task");
     expect(lista_elem.innerHTML).toEqual("");
