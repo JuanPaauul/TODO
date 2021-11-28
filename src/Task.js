@@ -26,6 +26,9 @@ class Task {
     get Description() {
         return this.description;
     }
+    get IsDone(){
+        return this.isDone;
+    }
     Done(){
         this.isDone = true;
     }

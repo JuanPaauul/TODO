@@ -167,6 +167,15 @@ describe("Parametros de la clase Task",() => {
         let task = new Task(0,"newName","test","1/11/1111","test","test");
         expect(task.Name).toEqual("newName");
     });
+    it("Deberia retornar el estado de la tarea, se espera un false porque la tarea aun no termino",()=>{
+        let task = new Task(0,"newName","test","1/11/1111","test","test");
+        expect(task.IsDone).toEqual(false);
+    });
+    it("Deberia retornar el estado de la tarea, se espera un true porque se indico que la tarea termino",()=>{
+        let task = new Task(0,"newName","test","1/11/1111","test","test");
+        task.Done();
+        expect(task.IsDone).toEqual(true);
+    });
   });
 
 describe("Funcionamiento de la clase TaskList",() => {
