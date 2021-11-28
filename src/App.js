@@ -1,7 +1,10 @@
+import TasksList from "./TasksList.js";
+
 let AllTask = Array();
 
 var etiquetas = [];
 var tareas = [];
+const listOfTasks = new TasksList();
 
 function getEtiquetas() {
     return etiquetas;
@@ -38,38 +41,8 @@ function eliminaRepetidas(separadas) {
     return resultado;
 }
 
-function insertNewTodoInTable(todoFormData, taskId) {
-    let todoTableRef = document.getElementById("todo-table");
-    let newTodoRowRef = todoTableRef.insertRow(-1);
-    let taskTags = todoFormData.get("task-tag");
-    let tags = returnEtiqueta(taskTags);
-    let newTypeCellRef = newTodoRowRef.insertCell(0);
-    var tarea = [];
-    newTypeCellRef.textContent = taskId;
-    newTypeCellRef = newTodoRowRef.insertCell(1);
-    tarea.taskName = todoFormData.get("task-name");
-    //tarea.taskId=taskId;
-    newTypeCellRef.textContent = todoFormData.get("task-name");
-    newTypeCellRef = newTodoRowRef.insertCell(2);
-    newTypeCellRef.textContent = todoFormData.get("task-type");
-    tarea.taskType = todoFormData.get("task-type");
-    newTypeCellRef = newTodoRowRef.insertCell(3);
-    newTypeCellRef.textContent = todoFormData.get("task-limit-date");
-    tarea.taskLimitDate = todoFormData.get("task-limit-date");
-    newTypeCellRef = newTodoRowRef.insertCell(4);
-    newTypeCellRef.textContent = tags;
-    etiquetas.push(tags);
-    tarea.tags = tags;
-    newTypeCellRef = newTodoRowRef.insertCell(5);
-    newTypeCellRef.textContent = todoFormData.get("task-description");
-    tarea.taskDescription = todoFormData.get("task-description");
-    newTypeCellRef = newTodoRowRef.insertCell(6);
-    newTypeCellRef.innerHTML = "<button class='todo-table-button'>Marcar como terminado</button>";
-    newTypeCellRef = newTodoRowRef.insertCell(7);
-    newTypeCellRef.innerHTML = "<a href='#' class='btn btn-danger' name='delete'>Eliminar Tarea</a>";
-    tareas.push(tarea);
-    console.log("tarea: ", tareas);
-    return tarea;
+function insertNewTodoInTable(taskName, taskType, taskLimitDate, taskTags, taskDescription) {
+    return listOfTasks.addTask(taskName, taskType, taskLimitDate, taskTags, taskDescription)
 }
 
 function markTaskAsDone(taskDone) {

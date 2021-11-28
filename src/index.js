@@ -17,25 +17,30 @@ const taskLimitDate = document.querySelector("#task-limit-date");
 const taskTags = document.querySelector("#task-tag");
 const taskDescription = document.querySelector("#task-description");
 
+function addTasksToList(task){
+    let todoTableRef = document.getElementById("todo-table");
+    let newTodoRowRef = todoTableRef.insertRow(-1);
+    newTodoRowRef.insertCell(0).textContent = task.Id;
+    newTodoRowRef.insertCell(1).textContent = task.Name;
+    newTodoRowRef.insertCell(2).textContent = task.Type;
+    newTodoRowRef.insertCell(3).textContent = task.LimitDate;
+    newTodoRowRef.insertCell(4).textContent = task.Tag;
+    newTodoRowRef.insertCell(5).textContent = task.Description;
+    newTodoRowRef.insertCell(6).innerHTML = "<button class='todo-table-button'>Marcar como terminado</button>";
+    newTodoRowRef.insertCell(7).innerHTML = "<a href='#' class='btn btn-danger' name='delete'>Eliminar Tarea</a>";
+}
 
 form.addEventListener("submit", (event) => {
-
     event.preventDefault();
-    if (listTask.innerHTML == "") {
-        listOfTasks = new TasksList();
-    }
-    listOfTasks = new TasksList();
-    listOfTasks.addTask(taskName, taskType, taskLimitDate, taskTags, taskDescription);
-
-    let todoFormData = new FormData(form);
-    todoFormData["task-id"] = todoIndex.toString();
-    f.insertNewTodoInTable(todoFormData, todoIndex);
-    todoIndex = todoIndex + 1;
+    let tTags = f.returnEtiqueta(taskTags.value);
+    var taskCreate = f.insertNewTodoInTable(taskName.value, taskType.value, taskLimitDate.value, tTags, taskDescription.value);
+    addTasksToList(taskCreate);
     form.reset();
 });
+
 dataTable.addEventListener('click', (e) => {
     if (e.target.classList.contains('todo-table-button')) {
-        f.markTaskAsDone(e.target.closest('tr')); //Mando una fila entera mi funcion. e.target selecciona mi boton de tarea termianda y .closest('tr') toma el superior a mi boton con la etiqueta tr.
+        f.markTaskAsDone(e.target.closest('tr'));
     }
     if (e.target.classList.contains('edit-table-button')) {
         f.editTask(e.target.closest('tr'));
