@@ -139,4 +139,20 @@ function filtrarEtiquetas(etiAbuscar) {
     });
 }
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, filtertasks, getEtiquetas, clearTable, filtrarEtiquetas };
+function filtrarFechas(fechaABuscar){
+    let tabla = document.getElementById("todo-table").rows;
+    let row = tabla[tabla.length - 1];
+    let cell;
+    let cellvalue;
+    for (let i = 0; i < tabla.length; i++) {
+        row = tabla[i];
+        cell=row.cells[3];
+        cellvalue=cell.innerHTML;
+        if(cellvalue==fechaABuscar)
+        {
+            filtertasks(row);
+        }
+    }
+}
+
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, filtertasks, getEtiquetas, clearTable, filtrarEtiquetas, filtrarFechas };

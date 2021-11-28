@@ -50,11 +50,11 @@ describe("Gestor Tareas", () => {
     const filterboton_elem = document.querySelector("#filter-button");
     const lista_elem = document.querySelector("#list-task");
     tarea_elem.value = "Primera Tarea";
-    dateLimit.value="11/11/2000";
+    dateLimit.value="2021-11-22";
     etiqueta_elem.value="Etiqueta";
     boton_elem.click();
-    input_filter.value="11/11/2000";
-    filteroption.value="Fecha";
+    input_filter.value="2021-11-22";
+    filteroption.value="FechaF";
     filterboton_elem.click();
     let tabla_filtrada=document.getElementById("todo-table-filter").rows;
     let last = tabla_filtrada[tabla_filtrada.length - 1];
@@ -63,7 +63,7 @@ describe("Gestor Tareas", () => {
     let value1 = cell.innerHTML;
     let value2=cell2.innerHTML;
     expect(value2).toEqual("Primera Tarea");
-    expect(value1).toEqual("11/11/2000");
+    expect(value1).toEqual("2021-11-22");
   });
 
 

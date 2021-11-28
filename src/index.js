@@ -53,10 +53,9 @@ filterform.addEventListener("submit", (event) => {
         case "EtiquetasF":
             f.filtrarEtiquetas(elementoABuscar.value);
             break;
-        case "DescripcionF":
-
+        case "FechaF":
+            f.filtrarFechas(elementoABuscar.value);
             break;
-
         default:
             break;
     }
