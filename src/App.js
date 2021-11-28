@@ -144,7 +144,7 @@ function filtrarFechas(fechaABuscar){
     let row = tabla[tabla.length - 1];
     let cell;
     let cellvalue;
-    for (let i = 0; i < tabla.length; i++) {
+    for (let i = 1; i < tabla.length; i++) {
         row = tabla[i];
         cell=row.cells[3];
         cellvalue=cell.innerHTML;

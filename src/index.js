@@ -57,6 +57,7 @@ filterform.addEventListener("submit", (event) => {
             f.filtrarFechas(elementoABuscar.value);
             break;
         default:
+            console.log("no eligio bien");
             break;
     }
     filterform.reset();
