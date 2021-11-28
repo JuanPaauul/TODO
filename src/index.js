@@ -41,8 +41,9 @@ function addTasksToList(task){
 }
 function filtertasks(tasksFiltered) {
     let todoDoneTableRef = document.getElementById("todo-table-filter");
-    let newTodoRowRef = todoDoneTableRef.insertRow(-1);
+    
     tasksFiltered.forEach(task => {
+        let newTodoRowRef = todoDoneTableRef.insertRow(-1);
         newTodoRowRef.insertCell(0).textContent = task.Id;
         newTodoRowRef.insertCell(1).textContent = task.Name;
         newTodoRowRef.insertCell(2).textContent = task.Type;
@@ -84,19 +85,20 @@ filterform.addEventListener("submit", (event) => {
     clearTable("todo-table-filter");
     let tipoFiltro = document.getElementById("task-filter");
     let elementoABuscar = document.getElementById("task-filter-input");
+    let tasks;
     switch (tipoFiltro.value) {
         case "EtiquetasF":
-            let tasks = f.filtrarEtiquetas(elementoABuscar.value);
-            if(tasks.length>0){
-                filtertasks(tasks);
-            }
+            tasks = f.filtrarEtiquetas(elementoABuscar.value);
             break;
         case "FechaF":
-            f.filtrarFechas(elementoABuscar.value);
+            tasks = f.filtrarFechas(elementoABuscar.value);
             break;
         default:
             console.log("no eligio bien");
             break;
+    }
+    if(tasks.length>0){
+        filtertasks(tasks);
     }
     filterform.reset();
 });

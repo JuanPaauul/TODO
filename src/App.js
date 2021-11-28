@@ -77,4 +77,26 @@ function filtrarEtiquetas(etiAbuscar) {
     return tasks;
 }
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas };
+function filtrarFechas(fechaABuscar){
+    let taskIdList = listOfTasks.getTaskByDate(fechaABuscar);
+    let tasks = [];
+    taskIdList.forEach(id =>{
+        tasks.push(listOfTasks.getTask(id));
+    });
+    return tasks;
+    /*let tabla = document.getElementById("todo-table").rows;
+    let row = tabla[tabla.length - 1];
+    let cell;
+    let cellvalue;
+    for (let i = 0; i < tabla.length; i++) {
+        row = tabla[i];
+        cell=row.cells[3];
+        cellvalue=cell.innerHTML;
+        if(cellvalue==fechaABuscar)
+        {
+            filtertasks(row);
+        }
+    }*/
+}
+
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas, filtrarFechas };
