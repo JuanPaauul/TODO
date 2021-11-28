@@ -79,80 +79,64 @@ describe("Etiquetas ingresadas por usuario", () => {
 });
 describe("La descripcion debe ser insertada correctamente", () => {
     it("deberia retornar la descripcion", () => {
-        var taskDescription = {
-            "task-description": "Some Item",
-            "task-tag": "tag",
-            "task-name": "name",
-            "task-limit-date": "2018-12-11",
-            "task-type": "type"
-        }
-        var fd = getFormData(taskDescription);
-
-        expect(f.insertNewTodoInTable(fd, 0).taskDescription).toEqual('Some Item');
-
+        let taskDescription = "Some Item";
+        let taskTag ="tag";
+        let taskName = "name";
+        let taskLimitDate = "2018-12-11";
+        let taskType ="type";
+        let task = f.insertNewTodoInTable(taskName,taskType,taskLimitDate,taskTag,taskDescription);
+        expect(task.Description).toEqual('Some Item');
     });
 
 });
 describe("Los tags deben ser insertados correctamente", () => {
     it("deberia retornar los tags", () => {
-        var taskDescription = {
-            "task-description": "Some Item",
-            "task-tag": "tag",
-            "task-name": "name",
-            "task-limit-date": "2018-12-11",
-            "task-type": "type"
-        }
-        var fd = getFormData(taskDescription);
-
-        expect(f.insertNewTodoInTable(fd, 0).tags).toEqual('#tag');
+        let taskDescription = "Some Item";
+        let taskTag ="tag";
+        let taskName = "name";
+        let taskLimitDate = "2018-12-11";
+        let taskType ="type";
+        let task = f.insertNewTodoInTable(taskName,taskType,taskLimitDate,taskTag,taskDescription);
+        expect(task.Tag).toEqual('#tag');
 
     });
 
 });
 describe("el nombre debe ser insertado correctamente", () => {
     it("deberia retornar el nombre", () => {
-        var taskDescription = {
-            "task-description": "Some Item",
-            "task-tag": "tag",
-            "task-name": "name",
-            "task-limit-date": "2018-12-11",
-            "task-type": "type"
-        }
-        var fd = getFormData(taskDescription);
-
-        expect(f.insertNewTodoInTable(fd, 0).taskName).toEqual('name');
+        let taskDescription = "Some Item";
+        let taskTag ="tag";
+        let taskName = "name";
+        let taskLimitDate = "2018-12-11";
+        let taskType ="type";
+        let task = f.insertNewTodoInTable(taskName,taskType,taskLimitDate,taskTag,taskDescription);
+        expect(task.Name).toEqual('name');
 
     });
 
 });
 describe("la fecha debe ser insertada correctamente", () => {
     it("deberia retornar la fecha", () => {
-        var taskDescription = {
-            "task-description": "Some Item",
-            "task-tag": "tag",
-            "task-name": "name",
-            "task-limit-date": "2018-12-11",
-            "task-type": "type"
-        }
-        var fd = getFormData(taskDescription);
-
-        expect(f.insertNewTodoInTable(fd, 0).taskLimitDate).toEqual('2018-12-11');
+        let taskDescription = "Some Item";
+        let taskTag ="tag";
+        let taskName = "name";
+        let taskLimitDate = "2018-12-11";
+        let taskType ="type";
+        let task = f.insertNewTodoInTable(taskName,taskType,taskLimitDate,taskTag,taskDescription);
+        expect(task.LimitDate).toEqual('2018-12-11');
 
     });
 
 });
 describe("El tipo de trabajo debe ser insertado correctamente", () => {
     it("deberia retornar el tipo de trabajo", () => {
-        var taskDescription = {
-            "task-description": "Some Item",
-            "task-tag": "tag",
-            "task-name": "name",
-            "task-limit-date": "2018-12-11",
-            "task-type": "type"
-        }
-        var fd = getFormData(taskDescription);
-
-        expect(f.insertNewTodoInTable(fd, 0).taskType).toEqual('type');
+        let taskDescription = "Some Item";
+        let taskTag ="tag";
+        let taskName = "name";
+        let taskLimitDate = "2018-12-11";
+        let taskType ="type";
+        let task = f.insertNewTodoInTable(taskName,taskType,taskLimitDate,taskTag,taskDescription);
+        expect(task.Type).toEqual('type');
 
     });
 

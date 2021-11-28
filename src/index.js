@@ -29,11 +29,21 @@ function addTasksToList(task){
     newTodoRowRef.insertCell(6).innerHTML = "<button class='todo-table-button'>Marcar como terminado</button>";
     newTodoRowRef.insertCell(7).innerHTML = "<a href='#' class='btn btn-danger' name='delete'>Eliminar Tarea</a>";
 }
-
+function filtertasks(tasksFiltered) {
+    let todoDoneTableRef = document.getElementById("todo-table-filter");
+    let newTodoRowRef = todoDoneTableRef.insertRow(-1);
+    tasksFiltered.forEach(task => {
+        newTodoRowRef.insertCell(0).textContent = task.Id;
+        newTodoRowRef.insertCell(1).textContent = task.Name;
+        newTodoRowRef.insertCell(2).textContent = task.Type;
+        newTodoRowRef.insertCell(3).textContent = task.LimitDate;
+        newTodoRowRef.insertCell(4).textContent = task.Tag;
+        newTodoRowRef.insertCell(5).textContent = task.Description;
+    });
+}
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    let tTags = f.returnEtiqueta(taskTags.value);
-    var taskCreate = f.insertNewTodoInTable(taskName.value, taskType.value, taskLimitDate.value, tTags, taskDescription.value);
+    var taskCreate = f.insertNewTodoInTable(taskName.value, taskType.value, taskLimitDate.value, taskTags.value, taskDescription.value);
     addTasksToList(taskCreate);
     form.reset();
 });
@@ -56,7 +66,10 @@ filterform.addEventListener("submit", (event) => {
     let elementoABuscar = document.getElementById("task-filter-input");
     switch (tipoFiltro.value) {
         case "EtiquetasF":
-            f.filtrarEtiquetas(elementoABuscar.value);
+            let tasks = f.filtrarEtiquetas(elementoABuscar.value);
+            if(tasks.length>0){
+                filtertasks(tasks);
+            }
             break;
         case "DescripcionF":
 
