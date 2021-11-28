@@ -47,13 +47,10 @@ function insertNewTodoInTable(taskName, taskType, taskLimitDate, taskTags, taskD
 }
 
 function markTaskAsDone(taskDone) {
-    taskDone.deleteCell(-1);
-    taskDone.deleteCell(-1);
-    //let undoDone = taskDone.insertCell(-1);
-    //undoDone.innerHTML = "<button class='undo-todo-table-button'>Desmarcar como terminado</button>";
-    let todoTableRef = document.getElementById("todo-table");
-    let todoDoneTableRef = document.getElementById("todo-done-table");
-    todoDoneTableRef.append(taskDone);
+    let task = listOfTasks.getTask(taskDone.cells[0].textContent);
+    task.Done();
+    console.log(task);
+    return task;
 }
 
 function clearTable(TableID) {
