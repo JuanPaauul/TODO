@@ -51,6 +51,13 @@ function filtertasks(tasksFiltered) {
         newTodoRowRef.insertCell(5).textContent = task.Description;
     });
 }
+function clearTable(TableID) {
+    let TableRef = document.getElementById(TableID).rows;
+    let size = TableRef.length;
+    for (let i = 1; i < size; i++) {
+        TableRef[i].remove();
+    }
+}
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     var taskCreate = f.insertNewTodoInTable(taskName.value, taskType.value, taskLimitDate.value, taskTags.value, taskDescription.value);
@@ -74,7 +81,7 @@ dataTable.addEventListener('click', (e) => {
 filterform.addEventListener("submit", (event) => {
     //filterform.reset();
     event.preventDefault();
-    f.clearTable("todo-table-filter");
+    clearTable("todo-table-filter");
     let tipoFiltro = document.getElementById("task-filter");
     let elementoABuscar = document.getElementById("task-filter-input");
     switch (tipoFiltro.value) {

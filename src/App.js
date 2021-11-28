@@ -53,14 +53,6 @@ function markTaskAsDone(taskDone) {
     return task;
 }
 
-function clearTable(TableID) {
-    let TableRef = document.getElementById(TableID).rows;
-    let size = TableRef.length;
-    for (let i = 1; i < size; i++) {
-        TableRef[i].remove();
-    }
-}
-
 function editTask() {
     document.getElementById("task-tag").value = taskTags;
 
@@ -85,4 +77,4 @@ function filtrarEtiquetas(etiAbuscar) {
     return tasks;
 }
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, clearTable, filtrarEtiquetas };
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas };
