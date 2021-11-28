@@ -3,6 +3,7 @@ import Task from "./Task.js"
 class TasksList {
     constructor() {
         this.tasksList = [];
+        this.lastId = 0;
     }
     get listLength(){
         return this.tasksList.length;
@@ -56,10 +57,10 @@ class TasksList {
         return this.tasksList[id];
     }
     addTask( name, type, limitdate, tags, description) {
-        var id = this.listLength;
-        var task = new Task(id, name, type, limitdate, tags, description);
+        var task = new Task(this.lastId, name, type, limitdate, tags, description);
         this.tasksList.push(task);
-        id = id + 1;
+        this.lastId++;
+        return task;
     }
 }
 

@@ -17,25 +17,60 @@ const taskLimitDate = document.querySelector("#task-limit-date");
 const taskTags = document.querySelector("#task-tag");
 const taskDescription = document.querySelector("#task-description");
 
+function fillValuesToTable(table, task){
+    let newTodoRowRef = table.insertRow(-1);
+    newTodoRowRef.insertCell(0).textContent = task.Id;
+    newTodoRowRef.insertCell(1).textContent = task.Name;
+    newTodoRowRef.insertCell(2).textContent = task.Type;
+    newTodoRowRef.insertCell(3).textContent = task.LimitDate;
+    newTodoRowRef.insertCell(4).textContent = task.Tag;
+    newTodoRowRef.insertCell(5).textContent = task.Description;
+}
 
-form.addEventListener("submit", (event) => {
-
-    event.preventDefault();
-    if (listTask.innerHTML == "") {
-        listOfTasks = new TasksList();
+function addTasksToList(task){
+    let todoTableRef = document.getElementById("todo-table");
+    let newTodoRowRef = todoTableRef.insertRow(-1);
+    newTodoRowRef.insertCell(0).textContent = task.Id;
+    newTodoRowRef.insertCell(1).textContent = task.Name;
+    newTodoRowRef.insertCell(2).textContent = task.Type;
+    newTodoRowRef.insertCell(3).textContent = task.LimitDate;
+    newTodoRowRef.insertCell(4).textContent = task.Tag;
+    newTodoRowRef.insertCell(5).textContent = task.Description;
+    newTodoRowRef.insertCell(6).innerHTML = "<button class='todo-table-button'>Marcar como terminado</button>";
+    newTodoRowRef.insertCell(7).innerHTML = "<a href='#' class='btn btn-danger' name='delete'>Eliminar Tarea</a>";
+}
+function filtertasks(tasksFiltered) {
+    let todoDoneTableRef = document.getElementById("todo-table-filter");
+    let newTodoRowRef = todoDoneTableRef.insertRow(-1);
+    tasksFiltered.forEach(task => {
+        newTodoRowRef.insertCell(0).textContent = task.Id;
+        newTodoRowRef.insertCell(1).textContent = task.Name;
+        newTodoRowRef.insertCell(2).textContent = task.Type;
+        newTodoRowRef.insertCell(3).textContent = task.LimitDate;
+        newTodoRowRef.insertCell(4).textContent = task.Tag;
+        newTodoRowRef.insertCell(5).textContent = task.Description;
+    });
+}
+function clearTable(TableID) {
+    let TableRef = document.getElementById(TableID).rows;
+    let size = TableRef.length;
+    for (let i = 1; i < size; i++) {
+        TableRef[i].remove();
     }
-    listOfTasks = new TasksList();
-    listOfTasks.addTask(taskName, taskType, taskLimitDate, taskTags, taskDescription);
-
-    let todoFormData = new FormData(form);
-    todoFormData["task-id"] = todoIndex.toString();
-    f.insertNewTodoInTable(todoFormData, todoIndex);
-    todoIndex = todoIndex + 1;
+}
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    var taskCreate = f.insertNewTodoInTable(taskName.value, taskType.value, taskLimitDate.value, taskTags.value, taskDescription.value);
+    addTasksToList(taskCreate);
     form.reset();
 });
+
 dataTable.addEventListener('click', (e) => {
     if (e.target.classList.contains('todo-table-button')) {
-        f.markTaskAsDone(e.target.closest('tr')); //Mando una fila entera mi funcion. e.target selecciona mi boton de tarea termianda y .closest('tr') toma el superior a mi boton con la etiqueta tr.
+        var tableRow = e.target.closest('tr');
+        var task = f.markTaskAsDone(tableRow);
+        fillValuesToTable(document.getElementById("todo-done-table"),task);
+        tableRow.remove();
     }
     if (e.target.classList.contains('edit-table-button')) {
         f.editTask(e.target.closest('tr'));
@@ -46,12 +81,15 @@ dataTable.addEventListener('click', (e) => {
 filterform.addEventListener("submit", (event) => {
     //filterform.reset();
     event.preventDefault();
-    f.clearTable("todo-table-filter");
+    clearTable("todo-table-filter");
     let tipoFiltro = document.getElementById("task-filter");
     let elementoABuscar = document.getElementById("task-filter-input");
     switch (tipoFiltro.value) {
         case "EtiquetasF":
-            f.filtrarEtiquetas(elementoABuscar.value);
+            let tasks = f.filtrarEtiquetas(elementoABuscar.value);
+            if(tasks.length>0){
+                filtertasks(tasks);
+            }
             break;
         case "FechaF":
             f.filtrarFechas(elementoABuscar.value);

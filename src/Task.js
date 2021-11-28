@@ -6,6 +6,7 @@ class Task {
         this.limitdate = limitdate;
         this.tag = tag;
         this.description = description;
+        this.isDone = false;
     }
     get Id() {
 		return this.id;
@@ -24,6 +25,12 @@ class Task {
     }
     get Description() {
         return this.description;
+    }
+    get IsDone(){
+        return this.isDone;
+    }
+    Done(){
+        this.isDone = true;
     }
 }
 
