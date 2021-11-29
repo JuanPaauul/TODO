@@ -280,7 +280,7 @@ describe("Funcionamiento del filtro por descripcion",() => {
         console.log(filteredTasks.length);
         expect(filteredTasks.length).toEqual(1);
     });
-    it("Deberia devolver 1 tarea con la descripcion ingresada",()=>{
+    it("Deberia devolver 1 tarea con la descripcion ingresada y no la que no lleva el valor a buscar",()=>{
         let task = new TasksList();
         task.addTask("test","test","1/11/1111","test","testDescripcion");
         task.addTask("test","test","1/11/1111","test","test");
@@ -288,6 +288,16 @@ describe("Funcionamiento del filtro por descripcion",() => {
         filteredTasks= task.getTaskByDescription("testDescripcion");
         console.log(filteredTasks.length);
         expect(filteredTasks.length).toEqual(1);
+    });
+    it("Deberia devolver 2 tarea con la descripcion ingresada",()=>{
+        let task = new TasksList();
+        task.addTask("test","test","1/11/1111","test","testDescripcion");
+        task.addTask("test","test","1/11/1111","test","test");
+        task.addTask("test","test","1/11/1111","test","testDescripcion");
+        let filteredTasks= [];
+        filteredTasks= task.getTaskByDescription("testDescripcion");
+        console.log(filteredTasks.length);
+        expect(filteredTasks.length).toEqual(2);
     });
 
 });
