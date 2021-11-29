@@ -94,7 +94,7 @@ filterform.addEventListener("submit", (event) => {
             tasks = f.filtrarFechas(elementoABuscar.value);
             break;
         case "DescripcionF":
-            tasks = f.filtrarFechas(elementoABuscar.value);
+            tasks = f.filtrarDescripcion(elementoABuscar.value);
             break;
         default:
             console.log("no eligio bien");
