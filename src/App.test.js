@@ -313,3 +313,14 @@ describe("Funcionamiento del filtro por descripcion",() => {
         expect(filteredTasks.length).toEqual(3);
     });
 });
+
+describe("Funcionamiento del filtro por Categorías",() => {
+    it("Deberia devolver 1 tarea con la categoría ingresada",()=> {
+        let task = new TasksList();
+        task.addTask("test","Estudio","1/11/1111","test","testDescripcion");
+        let filteredTasks= [];
+        filteredTasks= task.getTaskByType("Estudio");
+        console.log(filteredTasks.length);
+        expect(filteredTasks.length).toEqual(1);
+    });
+});
