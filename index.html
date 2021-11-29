@@ -15,6 +15,9 @@
             td {
                 padding: 0 50px;
             }
+            .filter {
+                display: none;
+            }
         </style>
     </head>
     <body>
@@ -51,6 +54,12 @@
                 <option value="FechaF">Fecha</option>
                 <option value="NombreF">Nombre</option>
                 <option value="DescripcionF">Descripción</option>
+                <option value="Categoria">Categoria</option>
+            </select>
+            <select id="category-search" name="category-search" class="filter">
+                <option value="Personal">Trabajo</option>
+                <option value="Trabajo">Estudio</option>
+                <option value="Estudio">Deberes</option>
             </select>
             <button id="filter-button" value="Filtrar">Filtrar</button>
             <br>

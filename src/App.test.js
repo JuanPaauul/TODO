@@ -323,4 +323,26 @@ describe("Funcionamiento del filtro por Categorías",() => {
         console.log(filteredTasks.length);
         expect(filteredTasks.length).toEqual(1);
     });
+    it("Deberia devolver 2 tareas con la categoría ingresada",()=>{
+        let task = new TasksList();
+        task.addTask("test","Deberes","1/11/1111","test","testDescripcion");
+        task.addTask("test","Deberes","1/11/1111","test","test");
+        let filteredTasks= [];
+        filteredTasks= task.getTaskByType("Deberes");
+        console.log(filteredTasks.length);
+        expect(filteredTasks.length).toEqual(2);
+    });
+    
+    it("Deberia devolver 3 tareas con la descripcion ingresada",()=>{
+        let task = new TasksList();
+        task.addTask("test","Personal","1/11/1111","test","testDescripcion");
+        task.addTask("test","Personal","1/11/1111","test","test");
+        task.addTask("test","Personal","1/11/1111","test","testDescripcion");
+        task.addTask("test","Estudio","1/11/1111","test","testDescripcion");
+        task.addTask("test","Estudio","1/11/1111","test","test");
+        let filteredTasks= [];
+        filteredTasks= task.getTaskByType("Personal");
+        console.log(filteredTasks.length);
+        expect(filteredTasks.length).toEqual(3);
+    });
 });
