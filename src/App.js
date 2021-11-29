@@ -107,4 +107,13 @@ function filtrarDescripcion(etiAbuscar) {
     return tasks;
 }
 
+function filtrarCategoría(categoriaAbuscar) {
+    let taskIdList = listOfTasks.getTaskByType(categoriaAbuscar);
+    let tasks = [];
+    taskIdList.forEach(id =>{
+        tasks.push(listOfTasks.getTask(id));
+    });
+    return tasks;
+}
+
 export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas, filtrarFechas,filtrarDescripcion };
