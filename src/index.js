@@ -99,8 +99,7 @@ filterform.addEventListener("submit", (event) => {
         case "DescripcionF":
             tasks = f.filtrarDescripcion(elementoABuscar.value);
             break;
-        case "CategoriaF":
-            alert("hola");
+        case "Categoria":
             tasks = f.filtrarCategoria(categoriaABuscar.value);
             break;
         default:
