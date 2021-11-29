@@ -299,5 +299,17 @@ describe("Funcionamiento del filtro por descripcion",() => {
         console.log(filteredTasks.length);
         expect(filteredTasks.length).toEqual(2);
     });
-
+    
+    it("Deberia devolver 2 tarea con la descripcion ingresada",()=>{
+        let task = new TasksList();
+        task.addTask("test","test","1/11/1111","test","testDescripcion");
+        task.addTask("test","test","1/11/1111","test","test");
+        task.addTask("test","test","1/11/1111","test","testDescripcion");
+        task.addTask("test","test","1/11/1111","test","testDescripcion");
+        task.addTask("test","test","1/11/1111","test","test");
+        let filteredTasks= [];
+        filteredTasks= task.getTaskByDescription("testDescripcion");
+        console.log(filteredTasks.length);
+        expect(filteredTasks.length).toEqual(3);
+    });
 });
