@@ -98,5 +98,13 @@ function filtrarFechas(fechaABuscar){
         }
     }*/
 }
+function filtrarDescripcion(etiAbuscar) {
+    let taskIdList = listOfTasks.getTaskByDescription(etiAbuscar);
+    let tasks = [];
+    taskIdList.forEach(id =>{
+        tasks.push(listOfTasks.getTask(id));
+    });
+    return tasks;
+}
 
 export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas, filtrarFechas };
