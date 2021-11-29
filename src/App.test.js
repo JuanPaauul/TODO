@@ -271,3 +271,11 @@ describe("Funcionamiento de la clase TaskList",() => {
         expect(task.getTaskByDescription("Hello, this is the description")).toEqual(expectedList);
       });
 });
+describe("Funcionamiento del filtro por descripcion",() => {
+    it("Deberia devolver 1 tarea con la descripcion ingresada",()=>{
+        let task = new TasksList();
+        task.addTask("test","test","1/11/1111","test","testDescripcion");
+        expect(task.listLength).toEqual(1);
+    });
+
+});
