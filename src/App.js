@@ -107,7 +107,7 @@ function filtrarDescripcion(etiAbuscar) {
     return tasks;
 }
 
-function filtrarCategoría(categoriaAbuscar) {
+function filtrarCategoria(categoriaAbuscar) {
     let taskIdList = listOfTasks.getTaskByType(categoriaAbuscar);
     let tasks = [];
     taskIdList.forEach(id =>{
@@ -116,4 +116,4 @@ function filtrarCategoría(categoriaAbuscar) {
     return tasks;
 }
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas, filtrarFechas,filtrarDescripcion };
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas, filtrarFechas,filtrarDescripcion, filtrarCategoria };

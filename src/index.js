@@ -17,7 +17,7 @@ const taskLimitDate = document.querySelector("#task-limit-date");
 const taskTags = document.querySelector("#task-tag");
 const taskDescription = document.querySelector("#task-description");
 const taskFilter = document.getElementById("task-filter");
-const taskCategories = document.querySelector("#category-search");
+const taskCategories = document.querySelector("#category-filter");
 
 function fillValuesToTable(table, task){
     let newTodoRowRef = table.insertRow(-1);
@@ -87,6 +87,7 @@ filterform.addEventListener("submit", (event) => {
     clearTable("todo-table-filter");
     let tipoFiltro = document.getElementById("task-filter");
     let elementoABuscar = document.getElementById("task-filter-input");
+    var categoriaABuscar = taskCategories.options[taskCategories.selectedIndex];
     let tasks;
     switch (tipoFiltro.value) {
         case "EtiquetasF":
@@ -97,6 +98,10 @@ filterform.addEventListener("submit", (event) => {
             break;
         case "DescripcionF":
             tasks = f.filtrarDescripcion(elementoABuscar.value);
+            break;
+        case "CategoriaF":
+            alert("hola");
+            tasks = f.filtrarCategoria(categoriaABuscar.value);
             break;
         default:
             console.log("no eligio bien");
