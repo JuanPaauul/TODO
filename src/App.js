@@ -107,4 +107,4 @@ function filtrarDescripcion(etiAbuscar) {
     return tasks;
 }
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas, filtrarFechas };
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas, filtrarFechas,filtrarDescripcion };

@@ -275,7 +275,10 @@ describe("Funcionamiento del filtro por descripcion",() => {
     it("Deberia devolver 1 tarea con la descripcion ingresada",()=>{
         let task = new TasksList();
         task.addTask("test","test","1/11/1111","test","testDescripcion");
-        expect(task.listLength).toEqual(1);
+        let filteredTasks= [];
+        filteredTasks= task.getTaskByDescription("testDescripcion");
+        console.log(filteredTasks.length);
+        expect(filteredTasks.length).toEqual(1);
     });
 
 });
