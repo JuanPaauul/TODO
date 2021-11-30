@@ -116,4 +116,5 @@ function filtrarCategoria(categoriaAbuscar) {
     return tasks;
 }
 
+
 export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas, filtrarFechas,filtrarDescripcion, filtrarCategoria };

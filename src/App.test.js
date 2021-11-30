@@ -345,4 +345,23 @@ describe("Funcionamiento del filtro por Categorías",() => {
         console.log(filteredTasks.length);
         expect(filteredTasks.length).toEqual(3);
     });
+    describe("Funcionamiento del filtro por nombres",() => {
+        it("Deberia devolver 1 tarea con el nombre ingresado",()=> {
+            let task = new TasksList();
+            task.addTask("test","Estudio","1/11/1111","test","testDescripcion");
+            let filteredTasks= [];
+            filteredTasks= task.getTaskByName("test");
+            console.log(filteredTasks.length);
+            expect(filteredTasks.length).toEqual(1);
+        });
+        it("Deberia devolver 2 tareas con el nombre ingresado",()=>{
+            let task = new TasksList();
+            task.addTask("test","Deberes","1/11/1111","test","testDescripcion");
+            task.addTask("test","Deberes","1/11/1111","test","test");
+            let filteredTasks= [];
+            filteredTasks= task.getTaskByName("test");
+            console.log(filteredTasks.length);
+            expect(filteredTasks.length).toEqual(2);
+        });
+    });
 });
