@@ -53,6 +53,11 @@ function markTaskAsDone(taskDone) {
     return task;
 }
 
+function editTask() {
+    document.getElementById("task-tag").value = taskTags;
+
+}
+
 function deleteTask(element) {
     if (element.name === "delete") {
         element.parentElement.parentElement.remove();
@@ -125,8 +130,8 @@ function dateString(fecha) {
 
 }
 
-function filtrarDescripcion(description) {
-    let taskIdList = listOfTasks.getTaskByDescription(description);
+function filtrarDescripcion(etiAbuscar) {
+    let taskIdList = listOfTasks.getTaskByDescription(etiAbuscar);
     let tasks = [];
     taskIdList.forEach(id => {
         tasks.push(listOfTasks.getTask(id));

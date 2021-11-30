@@ -38,8 +38,7 @@ class TasksList {
     getTaskByTag(taskTag){
         let idList = [];
         for (var i = 0; i < this.tasksList.length; i++) {
-            const tag=this.tasksList[i].Tag;
-            if ( tag.includes(taskTag)) {
+            if (this.tasksList[i].Tag == taskTag) {
                 idList.push(this.tasksList[i].Id);
             }
         }
@@ -48,8 +47,7 @@ class TasksList {
     getTaskByDescription(taskDescription){
         let idList = [];
         for (var i = 0; i < this.tasksList.length; i++) {
-            const descripe=this.tasksList[i].Description;
-            if (descripe.includes(taskDescription) ) {
+            if (this.tasksList[i].Description == taskDescription) {
                 idList.push(this.tasksList[i].Id);
             }
         }
