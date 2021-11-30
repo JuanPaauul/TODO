@@ -115,6 +115,14 @@ function filtrarCategoria(categoriaAbuscar) {
     });
     return tasks;
 }
+function filtrarNombre(nombreAbuscar) {
+    let taskIdList = listOfTasks.getTaskByName(nombreAbuscar);
+    let tasks = [];
+    taskIdList.forEach(id =>{
+        tasks.push(listOfTasks.getTask(id));
+    });
+    return tasks;
+}
 
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas, filtrarFechas,filtrarDescripcion, filtrarCategoria };
+export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas, filtrarFechas,filtrarDescripcion, filtrarCategoria,filtrarNombre };
