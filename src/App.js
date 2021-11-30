@@ -125,8 +125,8 @@ function dateString(fecha) {
 
 }
 
-function filtrarDescripcion(etiAbuscar) {
-    let taskIdList = listOfTasks.getTaskByDescription(etiAbuscar);
+function filtrarDescripcion(description) {
+    let taskIdList = listOfTasks.getTaskByDescription(description);
     let tasks = [];
     taskIdList.forEach(id => {
         tasks.push(listOfTasks.getTask(id));
