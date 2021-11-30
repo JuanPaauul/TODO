@@ -53,11 +53,6 @@ function markTaskAsDone(taskDone) {
     return task;
 }
 
-function editTask() {
-    document.getElementById("task-tag").value = taskTags;
-
-}
-
 function deleteTask(element) {
     if (element.name === "delete") {
         element.parentElement.parentElement.remove();
