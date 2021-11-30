@@ -38,7 +38,8 @@ class TasksList {
     getTaskByTag(taskTag){
         let idList = [];
         for (var i = 0; i < this.tasksList.length; i++) {
-            if (this.tasksList[i].Tag == taskTag) {
+            const tag=this.tasksList[i].Tag;
+            if ( tag.includes(taskTag)) {
                 idList.push(this.tasksList[i].Id);
             }
         }
