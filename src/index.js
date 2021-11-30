@@ -109,6 +109,7 @@ filterform.addEventListener("submit", (event) => {
             break;
         case "Semana":
             tasks = f.filtrarPorSemana(elementoABuscar.value);
+            break;
         default:
             console.log("no eligio bien");
             break;
