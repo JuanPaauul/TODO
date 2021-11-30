@@ -19,7 +19,7 @@ const taskDescription = document.querySelector("#task-description");
 const taskFilter = document.getElementById("task-filter");
 const taskCategories = document.querySelector("#category-filter");
 
-function fillValuesToTable(table, task){
+function fillValuesToTable(table, task) {
     let newTodoRowRef = table.insertRow(-1);
     newTodoRowRef.insertCell(0).textContent = task.Id;
     newTodoRowRef.insertCell(1).textContent = task.Name;
@@ -29,7 +29,7 @@ function fillValuesToTable(table, task){
     newTodoRowRef.insertCell(5).textContent = task.Description;
 }
 
-function addTasksToList(task){
+function addTasksToList(task) {
     let todoTableRef = document.getElementById("todo-table");
     let newTodoRowRef = todoTableRef.insertRow(-1);
     newTodoRowRef.insertCell(0).textContent = task.Id;
@@ -41,9 +41,10 @@ function addTasksToList(task){
     newTodoRowRef.insertCell(6).innerHTML = "<button class='todo-table-button'>Marcar como terminado</button>";
     newTodoRowRef.insertCell(7).innerHTML = "<a href='#' class='btn btn-danger' name='delete'>Eliminar Tarea</a>";
 }
+
 function filtertasks(tasksFiltered) {
     let todoDoneTableRef = document.getElementById("todo-table-filter");
-    
+
     tasksFiltered.forEach(task => {
         let newTodoRowRef = todoDoneTableRef.insertRow(-1);
         newTodoRowRef.insertCell(0).textContent = task.Id;
@@ -54,6 +55,7 @@ function filtertasks(tasksFiltered) {
         newTodoRowRef.insertCell(5).textContent = task.Description;
     });
 }
+
 function clearTable(TableID) {
     let TableRef = document.getElementById(TableID).rows;
     let size = TableRef.length;
@@ -72,7 +74,7 @@ dataTable.addEventListener('click', (e) => {
     if (e.target.classList.contains('todo-table-button')) {
         var tableRow = e.target.closest('tr');
         var task = f.markTaskAsDone(tableRow);
-        fillValuesToTable(document.getElementById("todo-done-table"),task);
+        fillValuesToTable(document.getElementById("todo-done-table"), task);
         tableRow.remove();
     }
     if (e.target.classList.contains('edit-table-button')) {
@@ -105,11 +107,13 @@ filterform.addEventListener("submit", (event) => {
         case "NombreF":
             tasks = f.filtrarNombre(elementoABuscar.value);
             break;
+        case "Semana":
+            tasks = f.filtrarPorSemana(elementoABuscar.value);
         default:
             console.log("no eligio bien");
             break;
     }
-    if(tasks.length>0){
+    if (tasks.length > 0) {
         filtertasks(tasks);
     }
     filterform.reset();
@@ -118,8 +122,7 @@ filterform.addEventListener("submit", (event) => {
 taskFilter.addEventListener("change", function() {
     if (taskFilter.value == "Categoria") {
         taskCategories.style.display = "block";
-    }
-    else {
+    } else {
         taskCategories.style.display = "none";
     }
 });

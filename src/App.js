@@ -69,18 +69,18 @@ function getDate(date) {
 }
 
 function filtrarEtiquetas(etiAbuscar) {
-    let taskIdList = listOfTasks.getTaskByTag("#"+etiAbuscar);
+    let taskIdList = listOfTasks.getTaskByTag("#" + etiAbuscar);
     let tasks = [];
-    taskIdList.forEach(id =>{
+    taskIdList.forEach(id => {
         tasks.push(listOfTasks.getTask(id));
     });
     return tasks;
 }
 
-function filtrarFechas(fechaABuscar){
+function filtrarFechas(fechaABuscar) {
     let taskIdList = listOfTasks.getTaskByDate(fechaABuscar);
     let tasks = [];
-    taskIdList.forEach(id =>{
+    taskIdList.forEach(id => {
         tasks.push(listOfTasks.getTask(id));
     });
     return tasks;
@@ -98,10 +98,42 @@ function filtrarFechas(fechaABuscar){
         }
     }*/
 }
+
+function filtrarPorSemana(fechaABuscar) {
+    let tasks = [];
+    let taskIdList = listOfTasks.getTaskByDate(fechaABuscar);
+    var dateArray = fechaABuscar.split("-");
+    var nextDay = new Date();
+    var d = new Date(dateArray[0], dateArray[1] - 1, dateArray[2]);
+    console.log("d:", d);
+    for (var i = 0; i < 7; i++) {
+        console.log("Dia ", fechaABuscar);
+        taskIdList.forEach(id => {
+            console.log("Push", id);
+            tasks.push(listOfTasks.getTask(id));
+        });
+
+
+        nextDay = new Date(d.getTime() + (24 * 60 * 60 * 1000));
+
+        d = nextDay;
+        fechaABuscar = dateString(d);
+        taskIdList = listOfTasks.getTaskByDate(fechaABuscar);
+    }
+
+    console.log("Tasks: ", tasks);
+    return tasks;
+}
+
+function dateString(fecha) {
+    return fecha.toISOString().split('T')[0];
+
+}
+
 function filtrarDescripcion(etiAbuscar) {
     let taskIdList = listOfTasks.getTaskByDescription(etiAbuscar);
     let tasks = [];
-    taskIdList.forEach(id =>{
+    taskIdList.forEach(id => {
         tasks.push(listOfTasks.getTask(id));
     });
     return tasks;
@@ -110,19 +142,20 @@ function filtrarDescripcion(etiAbuscar) {
 function filtrarCategoria(categoriaAbuscar) {
     let taskIdList = listOfTasks.getTaskByType(categoriaAbuscar);
     let tasks = [];
-    taskIdList.forEach(id =>{
+    taskIdList.forEach(id => {
         tasks.push(listOfTasks.getTask(id));
     });
     return tasks;
 }
+
 function filtrarNombre(nombreAbuscar) {
     let taskIdList = listOfTasks.getTaskByName(nombreAbuscar);
     let tasks = [];
-    taskIdList.forEach(id =>{
+    taskIdList.forEach(id => {
         tasks.push(listOfTasks.getTask(id));
     });
     return tasks;
 }
 
 
-export { createTask, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas, filtrarFechas,filtrarDescripcion, filtrarCategoria,filtrarNombre };
+export { createTask, dateString, filtrarPorSemana, returnEtiqueta, getDate, insertNewTodoInTable, markTaskAsDone, editTask, deleteTask, getEtiquetas, filtrarEtiquetas, filtrarFechas, filtrarDescripcion, filtrarCategoria, filtrarNombre };
