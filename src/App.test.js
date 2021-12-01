@@ -243,17 +243,17 @@ describe("Funcionamiento de la clase TaskList",() => {
 
       it("Deberia retornar la id de la tarea con la etiqueta indicada (buscar por etiqueta)",()=>{
         let task = new TasksList();
-        task.addTask("Task","type","1/11/1111","a tag","description");
-        task.addTask("Task","type","1/11/1111","another tag","description");
-        expect(task.getTaskByTag("a tag")).toEqual([0]);
+        task.addTask("Task","type","1/11/1111","#tag","description");
+        task.addTask("Task","type","1/11/1111","#another #tag","description");
+        expect(task.getTaskByTag("tag")).toEqual([0,1]);
       });
       it("Deberia retornar las ids de las tareas en una lista con la etiqueta indicada (buscar por etiqueta)",()=>{
         let task = new TasksList();
-        task.addTask("Task","type","1/11/1111","a tag","description");
-        task.addTask("Task one","type one","2/12/2000","another tag","description one");
-        task.addTask("Task two","type two","21/11/2000","another tag","description two");
+        task.addTask("Task","type","1/11/1111","#tag","description");
+        task.addTask("Task one","type one","2/12/2000","#another #tag","description one");
+        task.addTask("Task two","type two","21/11/2000","#another #tag #tag2","description two");
         let expectedList = [1,2];
-        expect(task.getTaskByTag("another tag")).toEqual(expectedList);
+        expect(task.getTaskByTag("another")).toEqual(expectedList);
       });
 
       it("Deberia retornar la id de la tarea con la descripcion indicada (buscar por descripcion)",()=>{
