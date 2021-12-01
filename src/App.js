@@ -69,7 +69,7 @@ function getDate(date) {
 }
 
 function filtrarEtiquetas(etiAbuscar) {
-    let taskIdList = listOfTasks.getTaskByTag("#" + etiAbuscar);
+    let taskIdList = listOfTasks.getTaskByTag(etiAbuscar);
     let tasks = [];
     taskIdList.forEach(id => {
         tasks.push(listOfTasks.getTask(id));

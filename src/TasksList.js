@@ -38,9 +38,12 @@ class TasksList {
     getTaskByTag(taskTag){
         let idList = [];
         for (var i = 0; i < this.tasksList.length; i++) {
-            if (this.tasksList[i].Tag == taskTag) {
-                idList.push(this.tasksList[i].Id);
-            }
+            let separado= this.tasksList[i].tag.split(' ');
+            separado.forEach(element => {
+                if(element=="#"+taskTag){
+                    idList.push(this.tasksList[i].Id);
+                }    
+            });
         }
         return idList;
     }
