@@ -58,7 +58,7 @@ describe("Gestor Tareas", () => {
     filterboton_elem.click();
     let tabla_filtrada=document.getElementById("todo-table-filter").rows;
     let last = tabla_filtrada[tabla_filtrada.length - 1];
-    let cell = last.cells[3];//valor en la columna 4 de la ultima fila de la tabla filtrada que corresponde a las etiquetas
+    let cell = last.cells[3];//valor en la columna 3 de la ultima fila de la tabla filtrada que corresponde a las fechas limites
     let cell2=last.cells[1];// valor en la columna 1 de la ultima fila de la tabla filtrada q corresponde al nombre
     let value1 = cell.innerHTML;
     let value2=cell2.innerHTML;
