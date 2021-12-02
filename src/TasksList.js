@@ -50,7 +50,8 @@ class TasksList {
     getTaskByDescription(taskDescription){
         let idList = [];
         for (var i = 0; i < this.tasksList.length; i++) {
-            if (this.tasksList[i].Description == taskDescription) {
+            const descripe=this.tasksList[i].Description;
+            if (descripe.includes(taskDescription) ) {
                 idList.push(this.tasksList[i].Id);
             }
         }
